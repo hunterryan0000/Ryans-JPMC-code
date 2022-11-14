@@ -1,0 +1,28 @@
+import Vue from 'vue'
+import App from './App.vue'
+import router from './router/index'
+import store from './store/index'
+import axios from 'axios'
+
+/* import fontawesome core */
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { faTrashCan, faRotate, faPenToSquare, faHouse } 
+  from '@fortawesome/free-solid-svg-icons'
+
+/* add icons to the library */
+library.add(faTrashCan);
+library.add(faRotate);
+library.add(faPenToSquare);
+library.add(faHouse);
+
+/* add font awesome icon component */
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+Vue.config.productionTip = false
+axios.defaults.baseURL = process.env.VUE_APP_REMOTE_API;
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

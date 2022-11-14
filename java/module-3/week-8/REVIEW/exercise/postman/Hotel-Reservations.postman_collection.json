@@ -1,0 +1,265 @@
+{
+	"info": {
+		"_postman_id": "95eb3d2d-4fd1-4ee2-9cef-260b39066005",
+		"name": "Hotel Reservations",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16986660"
+	},
+	"item": [
+		{
+			"name": "Get all Hotels",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Hotel States",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels/states",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels",
+						"states"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels/1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotel Reservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels/7/reservations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels",
+						"7",
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotels in State",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels?state=PA",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "PA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Hotels in City",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/hotels?state=PA&city=Pittsburgh",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"hotels"
+					],
+					"query": [
+						{
+							"key": "state",
+							"value": "PA"
+						},
+						{
+							"key": "city",
+							"value": "Pittsburgh"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all Reservations",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reservations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Reservation by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reservations/16",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Reservation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelId\": 7,\r\n    \"fullName\": \"Trisha Byrne\",\r\n    \"checkinDate\": \"2023-11-10\",\r\n    \"checkoutDate\": \"2023-11-12\",\r\n    \"guests\": 2\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/reservations",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Reservation",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"hotelId\": 4,\r\n    \"fullName\": \"Dainard Penberthy\",\r\n    \"checkinDate\": \"2023-10-20\",\r\n    \"checkoutDate\": \"2023-10-23\",\r\n    \"guests\": 3\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/reservations/16",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Reservation",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/reservations/11",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"reservations",
+						"11"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:9000",
+			"type": "string"
+		}
+	]
+}
