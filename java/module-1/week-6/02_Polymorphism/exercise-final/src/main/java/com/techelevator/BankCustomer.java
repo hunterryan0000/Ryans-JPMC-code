@@ -52,4 +52,6 @@ public class BankCustomer {
         }
         return total >= 25000;
     }
+
+
 }

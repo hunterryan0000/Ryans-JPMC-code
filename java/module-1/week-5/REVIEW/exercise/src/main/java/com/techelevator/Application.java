@@ -46,6 +46,7 @@ public class Application {
      */
     private void printDepartments() {
         System.out.println("------------- DEPARTMENTS ------------------------------");
+        
 
     }
 

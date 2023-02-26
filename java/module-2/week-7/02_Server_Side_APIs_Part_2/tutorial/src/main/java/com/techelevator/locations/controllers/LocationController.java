@@ -6,6 +6,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -14,6 +15,8 @@ public class LocationController {
 
     private LocationDao dao;
 
+    //constructor instantiates a new DAO instance at runtime
+    // by the Spring framework using Dependency Injection:
     public LocationController(LocationDao dao) {
         this.dao = dao;
     }
@@ -33,9 +36,18 @@ public class LocationController {
         }
     }
 
+    @ResponseStatus(HttpStatus.CREATED) //gives 201 created response instead of 200
     @RequestMapping(value = "", method = RequestMethod.POST)
-    public Location add(@RequestBody Location location) {
+    public Location add(@Valid /**Receives valid argument*/  @RequestBody Location location) {
         return dao.create(location);
+    }
+
+    @RequestMapping(path = "/{id}", method = RequestMethod.PUT)
+    public Location update(@Valid @RequestBody Location location, @PathVariable int id){
+        Location updatedLocation = dao.update(location, id);
+        if (updatedLocation == null){
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Location not found");
+        } return updatedLocation;
     }
 
 }

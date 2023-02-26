@@ -24,7 +24,7 @@ You'll create a `Map` that has a `String` for the key and a `String` for the val
 Map<String, String> projects
 ```
 
-Here, you specify two types in the `<>`. The first is the type of the key, and the second is the type of the value. You can mix these depending what you want to do with the structure.
+Here, you specify two types in the angle brackets `<>`. The first is the type of the key, and the second is the type of the value. You can mix these depending what you want to do with the structure.
 
 To continue with the theme from yesterday, you'll add the names of some famous programmers as the key and their most famous project as the value, so you'll use two `String`s to represent them.
 

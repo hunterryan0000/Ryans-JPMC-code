@@ -13,34 +13,50 @@ After completing this exercise, you'll understand:
 
 ## Evaluation criteria and functional requirements
 
-Your code will be evaluated based on the following criteria:
-
 * The project must not have any build errors.
-* The expected results are returned from the application.
+* The application returns the expected results.
 * The unit tests pass as expected.
-  * Note: Tests are provided for the WordSearch exercise only.
-* Paths to the input files aren't hard coded—that is, the user must be able to enter the path to the input file.
+  * Note: Tests are only provided for the WordSearch exercise.
+* Paths to the input files aren't hard-coded—in other words, the user must be able to enter the path to the input file.
 * Your code must be able to handle exceptions for I/O issues, like a missing or unreadable input file.
+
+## Getting started
+
+1. Open the `file-io-part1-exercises` project in IntelliJ.
+2. Open the Java file for the exercise you're working on. The files are in the `src/main/java/com/techelevator` package.
+3. Provide enough code to get the program started.
+4. Verify your work on the command line.
+5. Repeat until you've implemented all required features and all unit tests pass.
 
 ### Part One: WordSearch program
 
 In this exercise, you'll write a program that searches the contents of a file for a word. For each occurrence of the word in the file, you'll display the line number and the contents of that line in the console.
 
+**NOTE**: Line numbers begin with 1.
+
 The tests for this exercise are in the file `src/test/java/com/techelevator/WordSearchTests.java`. If you run these tests before working on the exercise, all tests fail. As you complete each step, more tests pass.
 
-**NOTE**: Line numbers begin with 1.
+#### Processing user input
+
+A pre-defined `Scanner` object to read user input is available in each class of the exercise. It's best practice to use one `Scanner` for reading user input in Java applications.
+
+Before the `main` method, you'll see `private final Scanner userInput = new Scanner(System.in);`. You can use this `Scanner` in your `try` statement like this:
+
+```java
+try (userInput) {
+  // your code that reads user input from the keyboard
+}
+```
 
 #### Step One: Collect user input and perform search
 
 When the program runs, it must first prompt the user for a filesystem path and a word to search for in the file.
 
-**NOTE**: Make sure that the `Scanner` object to read user input is created ONLY ONCE (in the `main` method of your code).
-
-A file called `alices_adventures_in_wonderland.txt` is included to use as test input. After collecting the required information from the user, you can search through the file for all occurrences of the search word and output that to the console.
+A file called `alices_adventures_in_wonderland.txt` is in your project folder that you can use as test input. After collecting the required information from the user, you can search through the file for all occurrences of the search word and output that to the console.
 
 For each matching line, your output must contain the line number and the text of the matching line, separated by one or more spaces.
 
-Optionally, you may also use one of the following separator characters between the line number and the text of the matching line, as long as there is some space before the line text.
+Optionally, you may also use one of the following separator characters between the line number and the text of the matching line, as long as there is some space before the line text:
 
 ```
 )
@@ -69,9 +85,10 @@ dog
 ```
 
 When you complete this part, the `caseSensitiveSearch_LineNumbers` and `caseSensitiveSearch_LineText` tests now pass.
+
 #### Step Two: Modify program for case-insensitive word search
 
-Modify the WordSearch program to ask the user if the search should be case sensitive.
+Modify the WordSearch program to ask the user if they want the search to be case-sensitive.
 
 Here's an example:
 
@@ -106,9 +123,9 @@ When you complete this part, the `caseInsensitiveSearch_LineNumbers` and `caseIn
 
 ### Part Two: QuizMaker program (Challenge)
 
-Create a quiz maker program that asks the user a question. The user must be presented with multiple-choice answers and be allowed to specify the correct answer.
+Create a quiz maker program that asks the user a question. You must prompt the user with multiple-choice answers and allow the user to enter their answer.
 
-The program must read the questions from an input file during startup. The questions and answers in the file are pipe-delimited ("|"), and correct answers are marked with an asterisk ("*") in the file.
+The program must read the questions from an input file during startup. The questions and answers in the file are pipe-delimited ("|"), and an asterisk ("*") marks the correct answer.
 
 For example:
 ```
@@ -172,14 +189,6 @@ RIGHT!
 
 You got 1 answer(s) correct out of the 2 questions asked.
 ```
-
-## Getting started
-
-1. Import the `file-io-part1-exercises` project in IntelliJ.
-2. Open the java file for the application you're working on. The files are located in the `src/main/java/com/techelevator` package.
-3. Provide enough code to get the program started.
-4. Verify your work on the command line.
-5. Repeat until you've implemented all required features and all unit tests pass.
 
 ## Tips and tricks
 

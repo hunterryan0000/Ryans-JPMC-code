@@ -24,7 +24,7 @@ public class FruitTreeTest {
 		assertTrue("getTypeOfFruit() method needs to return type: String", method.getReturnType() == String.class);
 
 		method = SafeReflection.getMethod(klass, "setTypeOfFruit", String.class);
-		assertTrue("FruitTree class should not have a getTypeOfFruit(String) method", method == null);
+		assertTrue("FruitTree class should not have a setTypeOfFruit(String) method", method == null);
 
 		method = SafeReflection.getMethod(klass, "getPiecesOfFruitLeft");
 		assertTrue("FruitTree class needs the getPiecesOfFruitLeft() method.", method != null);

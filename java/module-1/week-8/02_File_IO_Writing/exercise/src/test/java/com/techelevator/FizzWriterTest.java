@@ -17,7 +17,7 @@ public class FizzWriterTest {
 
     @Before
     public void setUp() throws Exception {
-        if(destFile.exists()) {
+        if (destFile.exists()) {
             destFile.delete();
         }
         System.setIn(new ByteArrayInputStream(DEST_FILE_PATH.getBytes()));
@@ -33,11 +33,11 @@ public class FizzWriterTest {
 
         // read destination file
         int numberOfLines = 0;
-        if(destFile.exists()) {
+        if (destFile.exists()) {
             numberOfLines = Files.readAllLines(destFile.toPath()).size();
         }
 
-        Assert.assertEquals(300,numberOfLines);
+        Assert.assertEquals("The output file is expected to have 300 lines. Make sure to put each entry on its own line.", 300, numberOfLines);
     }
 
     /**
@@ -49,16 +49,26 @@ public class FizzWriterTest {
         FizzWriter.main(null);
 
         // read destination file
-        String destContent = "";
-        if(destFile.exists()) {
-            destContent = Files.readString(destFile.toPath());
+        String fileContent = "";
+        if (destFile.exists()) {
+            fileContent = Files.readString(destFile.toPath());
+        }
+
+        String expected = fizzBuzzExpected();
+
+        // if for some reason line separators are different between the file content and expected,
+        // convert all "Windows" line endings (\r\n) to "Unix" (\n)
+        if ((fileContent.contains("\r\n") && !expected.contains("\r\n")) ||
+            (!fileContent.contains("\r\n") && expected.contains("\r\n"))) {
+            expected = expected.replace("\r\n", "\n");
+            fileContent = fileContent.replace("\r\n", "\n");
         }
 
         // expected
         // File expectedFile = new File("src/test/resources/fizzbuzz-expected.txt");
         //String expected = Files.readString(expectedFile.toPath());
 
-        Assert.assertEquals(fizzBuzzExpected(), destContent.trim());
+        Assert.assertEquals("The content of the file doesn't equal the expected output.", expected, fileContent.trim());
     }
 
     private String fizzBuzzExpected() {

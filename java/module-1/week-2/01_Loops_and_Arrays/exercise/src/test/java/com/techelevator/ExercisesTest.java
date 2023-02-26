@@ -37,55 +37,68 @@ public class ExercisesTest {
 	public void Exercise01_02_getCalzoneSales() {
 		Exercise01_StoreOrders exercise = new Exercise01_StoreOrders();
 		assertEquals("getCalzoneSales([CALZONE, SMALL_CHEESE, LARGE_CHEESE, CALZONE, SMALL_CHEESE])",
-				2,
-				exercise.getCalzoneSales(new int[] {CALZONE, SMALL_CHEESE, LARGE_CHEESE, CALZONE, SMALL_CHEESE}));
+			2,
+			exercise.getCalzoneSales(new int[] {CALZONE, SMALL_CHEESE, LARGE_CHEESE, CALZONE, SMALL_CHEESE}));
 		assertEquals("getCalzoneSales([SMALL_CHEESE, SMALL_PEPPERONI, SMALL_CHEESE])",
+			0,
+			exercise.getCalzoneSales(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, SMALL_CHEESE}));
+		assertEquals("getCalzoneSales([SMALL_PEPPERONI, BAKED_ZITI])",
 				0,
-				exercise.getCalzoneSales(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, SMALL_CHEESE}));
+				exercise.getCalzoneSales(new int[] {SMALL_PEPPERONI, BAKED_ZITI}));
 		assertEquals("getCalzoneSales([])",
-				0,
-				exercise.getCalzoneSales(new int[] {}));
+			0,
+			exercise.getCalzoneSales(new int[] {}));
 		assertEquals("getCalzoneSales([CALZONE, SMALL_CHEESE, SMALL_CHEESE])",
 				1,
-				exercise.getCalzoneSales(new int[] {CALZONE, SMALL_CHEESE, SMALL_CHEESE}));
+			exercise.getCalzoneSales(new int[] {CALZONE, SMALL_CHEESE, SMALL_CHEESE}));
 		assertEquals("getCalzoneSales([SMALL_CHEESE, CALZONE, SMALL_CHEESE])",
-				1,
-				exercise.getCalzoneSales(new int[] {SMALL_CHEESE, CALZONE, SMALL_CHEESE}));
+			1,
+			exercise.getCalzoneSales(new int[] {SMALL_CHEESE, CALZONE, SMALL_CHEESE}));
 		assertEquals("getCalzoneSales([SMALL_CHEESE, SMALL_CHEESE, CALZONE])",
 				1,
-				exercise.getCalzoneSales(new int[] {SMALL_CHEESE, SMALL_CHEESE, CALZONE}));
+			exercise.getCalzoneSales(new int[] {SMALL_CHEESE, SMALL_CHEESE, CALZONE}));
+
+		assertEquals("getCalzoneSales([BAKED_ZITI, SMALL_CHEESE, CALZONE, SPAGHETTI_PIE])",
+				1,
+				exercise.getCalzoneSales(new int[] {BAKED_ZITI, SMALL_CHEESE, CALZONE, SPAGHETTI_PIE}));
 		assertEquals("getCalzoneSales([CALZONE, CALZONE, SMALL_CHEESE])",
 				2,
-				exercise.getCalzoneSales(new int[] {CALZONE, CALZONE, SMALL_CHEESE}));
+			exercise.getCalzoneSales(new int[] {CALZONE, CALZONE, SMALL_CHEESE}));
 		assertEquals("getCalzoneSales([CALZONE, CALZONE, CALZONE])",
 				3,
-				exercise.getCalzoneSales(new int[] {CALZONE, CALZONE, CALZONE}));
+			exercise.getCalzoneSales(new int[] {CALZONE, CALZONE, CALZONE}));
 	}
 
 	@Test
 	public void Exercise01_03_getCheesePizzaRevenue() {
 		Exercise01_StoreOrders exercise = new Exercise01_StoreOrders();
 		assertEquals("getCheesePizzaRevenue([SMALL_CHEESE])",
-				8,
-				exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE}));
+			8,
+			exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([MEDIUM_CHEESE])",
 				11,
-				exercise.getCheesePizzaRevenue(new int[] {MEDIUM_CHEESE}));
+			exercise.getCheesePizzaRevenue(new int[] {MEDIUM_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([LARGE_CHEESE])",
 				14,
-				exercise.getCheesePizzaRevenue(new int[] {LARGE_CHEESE}));
+			exercise.getCheesePizzaRevenue(new int[] {LARGE_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE])",
-				19,
-				exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE}));
+			19,
+			exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE])",
 				33,
-				exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE}));
+			exercise.getCheesePizzaRevenue(new int[] {SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE])",
 				25,
-				exercise.getCheesePizzaRevenue(new int[] {MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE}));
+			exercise.getCheesePizzaRevenue(new int[] {MEDIUM_CHEESE, SMALL_PEPPERONI, LARGE_CHEESE}));
+		assertEquals("getCheesePizzaRevenue([BAKED_ZITI, LARGE_CHEESE])",
+				14,
+				exercise.getCheesePizzaRevenue(new int[] {BAKED_ZITI, LARGE_CHEESE}));
 		assertEquals("getCheesePizzaRevenue([SMALL_PEPPERONI, MEDIUM_PEPPERONI, LARGE_PEPPERONI])",
+			0,
+			exercise.getCheesePizzaRevenue(new int[] {SMALL_PEPPERONI, MEDIUM_PEPPERONI, LARGE_PEPPERONI}));
+		assertEquals("getCheesePizzaRevenue([BAKED_ZITI, SPAGHETTI_PIE])",
 				0,
-				exercise.getCheesePizzaRevenue(new int[] {SMALL_PEPPERONI, MEDIUM_PEPPERONI, LARGE_PEPPERONI}));
+				exercise.getCheesePizzaRevenue(new int[] {BAKED_ZITI, SPAGHETTI_PIE}));
 	}
 
 	@Test

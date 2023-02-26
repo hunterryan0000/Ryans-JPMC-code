@@ -57,6 +57,8 @@ public class Exercises {
 	public String extraEnd(String str) {
 		int len = str.length();
 		return str.substring(len - 2) + str.substring(len - 2) + str.substring(len - 2);
+
+
 	}
 
 	/*
@@ -180,8 +182,10 @@ public class Exercises {
 	 middleTwo("Practice") → "ct"
 	 */
 	public String middleTwo(String str) {
-		int len = str.length();
-		return str.substring(len / 2 - 1, len / 2 + 1);
+//		int len = str.length();
+//		return str.substring(len / 2 - 1, len / 2 + 1);
+
+		return str.substring((str.length() / 2) - 1, (str.length() / 2) + 1);
 	}
 
 	/*
@@ -316,8 +320,11 @@ public class Exercises {
 	 */
 	public boolean doubleX(String str) {
 		int firstX = str.indexOf('x');
-		if (firstX < str.length() - 1) {
-			return str.charAt(firstX + 1) == 'x';
+//		if (firstX < str.length() - 1) {
+//			return str.charAt(firstX + 1) == 'x';
+//		}
+		if ((firstX < str.length() - 1) && str.charAt(firstX + 1) == 'x') {
+			return true;
 		}
 		return false;
 	}

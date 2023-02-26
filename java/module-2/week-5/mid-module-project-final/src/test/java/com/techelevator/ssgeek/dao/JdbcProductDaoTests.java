@@ -20,7 +20,7 @@ public class JdbcProductDaoTests extends BaseDaoTests {
 
     @Before
     public void setup() {
-        productDao = new JdbcProductDao(dataSource);
+        productDao = new JdbcProductDao(dataSource1);
         testProduct = new Product(1, "Test Name", "Test Description", BigDecimal.valueOf(11.22), "test-image.png");
     }
 

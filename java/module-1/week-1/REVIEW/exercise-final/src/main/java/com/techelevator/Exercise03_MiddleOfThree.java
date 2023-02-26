@@ -12,16 +12,20 @@ public class Exercise03_MiddleOfThree {
      */
     public int middleOfThree(int a, int b, int c) {
         int result = b; // Assume the middle value is the middle parameter
-        if (a >= b && b < c) {
-            result = a;
-        }
-        else if (b > a && a >= c) {
-            result = a;
-        }
-        else if (b > a && a <= c) {
+//        if (a >= b && b < c) {
+//            result = a;
+//        }
+//        else if (b > a && a >= c) {
+//            result = a;
+//        }
+//        else
+        if (a<b && a <= c) {
             result = c;
         }
-        else if (c > a && a >= b) {
+//        else if (c > a) {
+//            result = a;
+//        }
+        else if (a >= b && b < c) {
             result = a;
         }
         return result;

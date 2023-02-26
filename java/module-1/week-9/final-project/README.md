@@ -24,7 +24,7 @@ The starting code provides you with a menu user interface that handles user inpu
 The Module One final project contains these files:
 
 * `App.java` - The "main" class of the application
-* `models/CatalogItem.java` - An interface to implement specific methods on catalog items
+* `model/CatalogItem.java` - An interface to implement specific methods on catalog items
 * `util/FileStorageService.java` - A File I/O class for you to put your I/O logic in and use in your code
 * `util/exception/FileStorageException.java` - A custom exception for the `FileStorageService` class
 
@@ -39,7 +39,7 @@ The `main()` method of the `App` class calls both of these methods. In other wor
 
 The `App` class contains other methods after `initialize()` and `run()` that comprise the application UI and called on from within the run-loop. You won't need to change any of this code, but you can feel free to browse it. The method names are descriptive of their purpose. **These methods are complete and you shouldn't modify them.**
 
-### `models/CatalogItem.java`
+### `model/CatalogItem.java`
 
 As part of the requirements for this project, you'll define classes that implement the `CatalogItem` interface. The interface defines the methods that these classes must implement.
 

@@ -16,9 +16,11 @@ public class Exercise01 {
 	 */
     public List<String> noStartingVowels(List<String> inputValues) {
         List<String> filtered = new ArrayList<>();
+
         for (String inputValue : inputValues) {
             String firstLetter = inputValue.toLowerCase().substring(0, 1);
-            if (!(firstLetter.equals("a") || firstLetter.equals("e") || firstLetter.equals("i")
+
+            if (!(firstLetter.startsWith("a") || firstLetter.equals("e") || firstLetter.equals("i")
                     || firstLetter.equals("o") || firstLetter.equals("u") )) {
                 filtered.add(inputValue);
             }

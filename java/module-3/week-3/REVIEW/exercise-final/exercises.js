@@ -104,14 +104,30 @@ function wordFlipper(input) {
   const words = input.split(' ');
   let output = "";
 
-  words.forEach(word => {
-    if (word.length > 4) {
-      output = output.concat(word.split('').reverse().join(''), ' ');
-    } else {
-      output = output.concat(word, ' ');
-    }
-  });
+  // words.forEach(word => {
+  //   if (word.length > 4) {
+  //     //if the words has 5 or more letters then split the word into individual letters
+  //     //reverse the order of letters and then join back
+  //     output = output.concat(word.split('').reverse().join(''), ' ');
+  //   } else {
+  //     //else just add the word to the string
+  //     output = output.concat(word, ' ');
+  //   }
+  // });
 
+  for(let word of words){
+    if (word.length > 4) {
+          //if the words has 5 or more letters then split the word into individual letters
+          //reverse the order of letters and then join back
+          output += word.split("").reverse().join("") + " ";
+        } else {
+          //else just add the word to the string
+          output += word + " ";
+  }
+}
+
+  //Removes the leading and trailing white space 
+  //and line terminator characters from a string.
   return output.trim();
 }
 
@@ -131,15 +147,23 @@ function calculateTotal(numbers) {
   let total = 0;
   numbers.forEach(num => {
     if (numbers.length % num === 0) {
+      //If a number is a multiple of the length of the array
+      //and If a number is a multiple of 2
       if (num % 2 === 0) {
         total -= 2 * num;
-      } else {
+      } 
+      //If a number is a multiple of the length of the array only
+      else {
         total -= num;
       }
     }
+    //If a number is a multiple of 2 only
     else if (num % 2 === 0) {
       total += 2 * num;
-    } else {
+    } 
+    //should return a basic sum if array length is not multiple of any num 
+    //and no nums are multiples of 2
+    else {
       total += num;
     }
   });
@@ -163,16 +187,23 @@ function calculateTotal(numbers) {
  */
 function caesarCipher(key, message) {
   const alphabet = ['A', 'a', 'B', 'b', 'C', 'c', 'D', 'd', 'E', 'e', 'F', 'f', 'G', 'g', 'H', 'h', 'I', 'i', 'J', 'j', 'K', 'k', 'L', 'l', 'M', 'm', 'N', 'n', 'O', 'o', 'P', 'p', 'Q', 'q', 'R', 'r', 'S', 's', 'T', 't', 'U', 'u', 'V', 'v', 'W', 'w', 'X', 'x', 'Y', 'y', 'Z', 'z']
-  const encryptedMessage = message.split('').map((item) => {
-    if (alphabet.includes(item)) {
-      const index = ((alphabet.indexOf(item)) + key * 2) % 52;
+  //split the strings into separate characters (character) using callback function
+  const encryptedMessage = message.split('').map((character) => {
+    //if character is in alphabet
+    if (alphabet.includes(character)) {
+      //index position of that character is now 3 spots ahead but because its 
+      //upper and lower must multiply by 2
+      //up to 52 char (26 upper and 26 lower)
+      const index = ((alphabet.indexOf(character)) + key * 2) % 52;
+      //if a negative key is given that makes us go backwards z-a
       if (index < 0) {
         return alphabet[index + alphabet.length];
       }
       return alphabet[index];
     }
+    //if the character is not a letter return that character
     else {
-      return item;
+      return character;
     }
   });
   return encryptedMessage.join('');
@@ -197,20 +228,22 @@ function caesarCipher(key, message) {
  * @returns {object}
  */
 function orderArrivals(trains) {
+  // array of objects
   let arrivalTimes = [];
   trains.forEach(train => {
+    //in minutes
     let actualTripTime = (train.routeDistance / train.avgSpeed) * 60;
     let timeRemaining = (train.distanceRemaining / train.avgSpeed) * 60;
 
     let isOnSchedule = actualTripTime <= train.estimatedTripTime;
-
+// add arrivals to the array
     arrivalTimes.push({
       name: train.name,
       timeRemaining: timeRemaining,
       isOnSchedule: isOnSchedule,
     })
   });
-
+//sort the array from least time remaining to most
   arrivalTimes.sort((a, b) => {
     return a.timeRemaining - b.timeRemaining;
   });
@@ -251,10 +284,12 @@ function orderArrivals(trains) {
  * @returns {object}
  */
 function captureMonsters(properties) {
+  //Remove monster/trap if enough remain
   while (properties.distance > 0 && properties.numberOfMonsters > 0) {
     properties.numberOfTraps--;
     properties.numberOfMonsters--;
 
+    //check if all monsters have been trapped
     if (properties.numberOfMonsters === 0) {
       return {
         isSafe: true,
@@ -263,7 +298,10 @@ function captureMonsters(properties) {
         distanceRemaining: properties.distance,
       };
     }
+    
+    //have to capture monster and must be some remaining before distance is reduced
     properties.distance -= 1.5;
+    //once monsters move closer if monsters have reached you you've failed
     if (properties.distance <= 0) {
       return {
         isSafe: false,
@@ -301,14 +339,37 @@ function captureMonsters(properties) {
  * @returns {object}
  */
 function characterCount(input) {
-  input = input.toLowerCase().replaceAll(' ', '');
-  let output = {};
+  //... should not include spaces
+  //input = input.toLowerCase().replaceAll(' ', ''); 
+  
+  // turns string to lowercase which we return 
+  input = input.toLowerCase();
+  //The object we return
+  let outputObject = {};
+
+  // //while we have any word
   while (input.length > 0) {
+   // char is the first letter
     let char = input[0];
+    //count splits the string into individual letters and counts the charaters that
+    //are the same as (char)
+    //slices into substrings based on how many so minus 1 to get the right number
     let count = input.split(char).length - 1;
-    output[char] = count;
-    input = input.replaceAll(char, '');
+    //the value of the object's key (char) is the count 
+    outputObject[char] = count;
+    //gets rid of each character alike one by one
+    input = input.replaceAll(char, "");
   }
 
-  return output;
+  return outputObject;
+
+    for (let i = 0; i < input.length; i++){;
+        let letter = input.charAt(i);
+        if (outputObject.hasOwnProperty(letter)) {
+            outputObject[letter]++;
+        } else {
+          outputObject[letter] = 1;
+        }
+    } 
+    return outputObject;
 }

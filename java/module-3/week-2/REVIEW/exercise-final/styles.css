@@ -67,7 +67,7 @@ body {
 }
 body#home {
     display: grid;
-    grid-template-columns: 2fr 2fr 2fr 2fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-areas:
        "header header nav nav"
        "main main main main"
@@ -76,7 +76,7 @@ body#home {
 }
 body#contact {
     display: grid;
-    grid-template-columns: 2fr 2fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-areas:
        "header nav"
        "main main"
@@ -158,6 +158,7 @@ main#homepage {
     align-items: center;
 }
 
+/* Contact Us Page */
 main#contact-us div {
     padding-top: 20px;
 }

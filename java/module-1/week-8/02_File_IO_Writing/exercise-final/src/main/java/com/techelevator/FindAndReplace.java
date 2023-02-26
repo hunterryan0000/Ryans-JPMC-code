@@ -22,9 +22,17 @@ import java.util.Scanner;
 
 public class FindAndReplace {
 
-	public static void main(String[] args) {
+	// Use this scanner for all user input. Don't create additional Scanners with System.in
+	private final Scanner userInput = new Scanner(System.in);
 
-		try (Scanner userInput = new Scanner(System.in)) {
+	public static void main(String[] args) {
+		FindAndReplace findAndReplace = new FindAndReplace();
+		findAndReplace.run();
+	}
+
+	public void run() {
+		/* Your code goes here */
+		try (userInput) {
 
 			// Get the search word
 			System.out.println("What is the search word?");
@@ -62,18 +70,18 @@ public class FindAndReplace {
 			path = userInput.nextLine();
 			destinationFile = new File(path);
 			// Validate the destination file
-			if(path == null || path.isEmpty()) {
+			if (path.isEmpty()) {
 				System.out.println("The destination filename is empty");
 				System.exit(0);
 			}
-			if(!destinationFile.getName().endsWith(".txt")) {
+			if (!destinationFile.getName().endsWith(".txt")) {
 				System.out.println("The destination file must end in .txt");
 				System.exit(0);
 			}
 
 			// Replace word
 			try (Scanner sourceScanner = new Scanner(sourceFile.getAbsoluteFile());
-				 PrintWriter destinationWriter = new PrintWriter(destinationFile.getAbsoluteFile())) {
+				PrintWriter destinationWriter = new PrintWriter(destinationFile.getAbsoluteFile())) {
 				while (sourceScanner.hasNextLine()) {
 					String line = sourceScanner.nextLine();
 					destinationWriter.println(line.replaceAll(searchWord, replacementWord));

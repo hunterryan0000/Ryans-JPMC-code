@@ -19,22 +19,31 @@ import java.util.Scanner;
  * Expected Sentence Count: 1116 - 1839
  */
 public class WordCount {
-	
-	public static void main(String[] args) throws FileNotFoundException {
 
-		try (Scanner userInput = new Scanner(System.in)) {
+	// Use this scanner for all user input. Don't create additional Scanners with System.in
+	private final Scanner userInput = new Scanner(System.in);
+
+	public static void main(String[] args) {
+		WordCount wordCount = new WordCount();
+		wordCount.run();
+	}
+
+	public void run() {
+		/* Your code goes here */
+		//Captures userInput via Scanner object
+		try (userInput) {
 			// Get the path of the input file
 			File inputFile;
-			while(true) {
+			while (true) {
 				System.out.println("What is the file that should be searched?");
 				String path = userInput.nextLine();
 				// Validate the input file
 				inputFile = new File(path);
-				if(inputFile.exists() == false) {
-					System.out.println(path+" does not exist");
+				if (!inputFile.exists()) {
+					System.out.println(path + " does not exist");
 					continue;
-				} else if(inputFile.isFile() == false) {
-					System.out.println(path+" is not a file");
+				} else if (!inputFile.isFile()) {
+					System.out.println(path + " is not a file");
 					continue;
 				}
 				break;
@@ -48,13 +57,15 @@ public class WordCount {
 					if (!line.isEmpty()) { 								// Blank lines should be skipped
 						String[] words = line.trim().split("\\s+");   	// Split the line into individual words.
 						wordCount += words.length;						// The length of the array of words is the number of words. Doh!
-						for(String word : words) {						// Loop through words, add one each 'sentence terminated' word found
+						for (String word : words) {						// Loop through words, add one each 'sentence terminated' word found
 							if (word.endsWith(".") || word.endsWith("?") || word.endsWith("!")) {
 								sentenceCount += 1;
 							}
 						}
 					}
 				}
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
 			}
 			// Display the word and sentence counts
 			System.out.println("Word count: " + wordCount);

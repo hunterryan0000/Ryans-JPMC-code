@@ -17,6 +17,7 @@ public class Exercise03 {
     */
     public boolean isAccountOverdrawn(BigDecimal startingBalance, List<BigDecimal> deposits, List<BigDecimal> withdrawals) {
         BigDecimal currentBalance = startingBalance;
+
         for (BigDecimal deposit : deposits) {
             currentBalance = currentBalance.add(deposit);
         }

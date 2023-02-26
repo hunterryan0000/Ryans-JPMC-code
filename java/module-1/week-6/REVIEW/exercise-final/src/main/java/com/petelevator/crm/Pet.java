@@ -16,14 +16,21 @@ public class Pet {
     }
 
     public String listVaccinations() {
-        String vaccString = "";
-        for (String vaccination : vaccinations) {
-            vaccString += vaccination;
-            if (vaccinations.indexOf(vaccination) < vaccinations.size() -1) {
-                vaccString += ", ";
-            }
-        }
+//        String vaccString = "";
+//
+//        //Adds vaccination list of Strings to String vaccString
+//        for (String vaccination : vaccinations) {
+//            vaccString += vaccination;
+//
+//        //Ensures no comma will be added to the end of vaccString
+//            if (vaccinations.indexOf(vaccination) < vaccinations.size() -1) {
+//                vaccString += ", ";
+//            }
+//        }
+//
+//        return vaccString;
 
+        String vaccString = String.join(", ", vaccinations);
         return vaccString;
     }
 

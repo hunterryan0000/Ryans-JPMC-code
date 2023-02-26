@@ -5,13 +5,16 @@
 		sumDouble(1, 2) → 3
 		sumDouble(3, 2) → 5
 		sumDouble(2, 2) → 8
-
-		function sumDouble(x, y) {
-			// do logic here
-			// return result;
-			return x + y;
-        }
 */
+		function sumDouble(x, y) {
+			if (x === y) {
+				return 2 * (x + y);
+			  } else {
+				return x + y;
+			  }
+        }
+
+
 
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
@@ -21,6 +24,16 @@
 		hasTeen(20, 19, 10) → true
 		hasTeen(20, 10, 13) → true
 */
+function hasTeen(x, y, z){
+// if ((x >= 13 && x <= 19) || 
+// 	(y >= 13 && y <= 19) ||
+// 	(z >= 13 && z <= 19))
+// 	return true;
+// 	else return false;
+return ((x >= 13 && x <= 19) || 
+	(y >= 13 && y <= 19) ||
+	(z >= 13 && z <= 19));
+}
 
 /* 
 3. **lastDigit** Given two non-negative int values, return true if they have the same 
@@ -30,6 +43,11 @@
 		lastDigit(6, 17) → false
 		lastDigit(3, 113) → true
 */
+function lastDigit(x,y){
+	if (x % 10 === y % 10)
+	return true;
+	else return false;
+}
 
 /*
 4. **seeColor** Given a string, if the string begins with "red" or "blue" return that color 
@@ -39,6 +57,15 @@
 		seeColor("xxred") → ""
         seeColor("blueTimes") → "blue"
 */
+function seeColor(input){
+let result = "";
+
+if (input.startsWith("red")){
+	result = "red";
+} else if (input.startsWith("blue")){
+	result = "blue";
+} return result;
+}
 
 /*
 5. **oddOnly** Write a function that given an array of integer of any length, removes
@@ -56,6 +83,9 @@
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+function frontAgain(input){
+	return (input.startsWith(input.substring(input.length-2)))
+}
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
@@ -68,6 +98,9 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+function cigarParty(cigars, isWeekend){
+	return ((isWeekend && cigars >= 40) || (!isWeekend && cigars >= 40 && cigars <= 60))
+}
 
 /*
 8. **fizzBuzz** Given a number, return a value according to the following rules:

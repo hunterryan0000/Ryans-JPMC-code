@@ -10,7 +10,7 @@ public class ExercisesTest {
 	Exercises exercises = new Exercises();
 
 	@Test
-	public void helloName() {
+	public void exercise01_helloName() {
 		assertEquals("Input: helloName(\"Bob\")", "Hello Bob!", exercises.helloName("Bob"));
 		assertEquals("Input: helloName(\"Alice\")", "Hello Alice!", exercises.helloName("Alice"));
 		assertEquals("Input: helloName(\"X\")", "Hello X!", exercises.helloName("X"));
@@ -24,7 +24,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void makeAbba() {
+	public void exercise02_makeAbba() {
 		assertEquals("Input: makeAbba(\"Hi\", \"Bye\")", "HiByeByeHi", exercises.makeAbba("Hi", "Bye"));
 		assertEquals("Input: makeAbba(\"Yo\", \"Alice\")", "YoAliceAliceYo", exercises.makeAbba("Yo", "Alice"));
 		assertEquals("Input: makeAbba(\"What\", \"Up\")", "WhatUpUpWhat", exercises.makeAbba("What", "Up"));
@@ -37,7 +37,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void makeTags() {
+	public void exercise03_makeTags() {
 		assertEquals("Input: makeTags(\"i\", \"Yay\")", "<i>Yay</i>", exercises.makeTags("i", "Yay"));
 		assertEquals("Input: makeTags(\"i\", \"Hello\")", "<i>Hello</i>", exercises.makeTags("i", "Hello"));
 		assertEquals("Input: makeTags(\"cite\", \"Yay\")", "<cite>Yay</cite>", exercises.makeTags("cite", "Yay"));
@@ -49,7 +49,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void makeOutWord() {
+	public void exercise04_makeOutWord() {
 		assertEquals("Input: makeOutWord(\"<<>>\", \"Yay\")", "<<Yay>>", exercises.makeOutWord("<<>>", "Yay"));
 		assertEquals("Input: makeOutWord(\"<<>>\", \"WooHoo\")", "<<WooHoo>>", exercises.makeOutWord("<<>>", "WooHoo"));
 		assertEquals("Input: makeOutWord(\"[[]]\", \"word\")", "[[word]]", exercises.makeOutWord("[[]]", "word"));
@@ -58,7 +58,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void extraEnd() {
+	public void exercise05_extraEnd() {
 		assertEquals("Input: extraEnd(\"Hello\")", "lololo", exercises.extraEnd("Hello"));
 		assertEquals("Input: extraEnd(\"ab\")", "ababab", exercises.extraEnd("ab"));
 		assertEquals("Input: extraEnd(\"Hi\")", "HiHiHi", exercises.extraEnd("Hi"));
@@ -67,7 +67,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void firstTwo() {
+	public void exercise06_firstTwo() {
 		assertEquals("Input: firstTwo(\"Hello\")", "He", exercises.firstTwo("Hello"));
 		assertEquals("Input: firstTwo(\"abcdefg\")", "ab", exercises.firstTwo("abcdefg"));
 		assertEquals("Input: firstTwo(\"ab\")", "ab", exercises.firstTwo("ab"));
@@ -79,7 +79,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void firstHalf() {
+	public void exercise07_firstHalf() {
 		assertEquals("Input: firstHalf(\"WooHoo\")", "Woo", exercises.firstHalf("WooHoo"));
 		assertEquals("Input: firstHalf(\"HelloThere\")", "Hello", exercises.firstHalf("HelloThere"));
 		assertEquals("Input: firstHalf(\"abcdef\")", "abc", exercises.firstHalf("abcdef"));
@@ -90,7 +90,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void withoutEnd() {
+	public void exercise08_withoutEnd() {
 		assertEquals("Input: withoutEnd(\"Hello\")", "ell", exercises.withoutEnd("Hello"));
 		assertEquals("Input: withoutEnd(\"java\")", "av", exercises.withoutEnd("java"));
 		assertEquals("Input: withoutEnd(\"coding\")", "odin", exercises.withoutEnd("coding"));
@@ -102,7 +102,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void comboString() {
+	public void exercise09_comboString() {
 		assertEquals("Input: comboString(\"Hello\", \"hi\")", "hiHellohi", exercises.comboString("Hello", "hi"));
 		assertEquals("Input: comboString(\"hi\", \"Hello\")", "hiHellohi", exercises.comboString("hi", "Hello"));
 		assertEquals("Input: comboString(\"aaa\", \"b\")", "baaab", exercises.comboString("aaa", "b"));
@@ -117,7 +117,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void nonStart() {
+	public void exercise10_nonStart() {
 		assertEquals("Input: nonStart(\"Hello\", \"There\")", "ellohere", exercises.nonStart("Hello", "There"));
 		assertEquals("Input: nonStart(\"java\", \"code\")", "avaode", exercises.nonStart("java", "code"));
 		assertEquals("Input: nonStart(\"shotl\", \"java\")", "hotlava", exercises.nonStart("shotl", "java"));
@@ -130,7 +130,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void left2() {
+	public void exercise11_left2() {
 		assertEquals("Input: left2(\"Hello\")", "lloHe", exercises.left2("Hello"));
 		assertEquals("Input: left2(\"java\")", "vaja", exercises.left2("java"));
 		assertEquals("Input: left2(\"Hi\")", "Hi", exercises.left2("Hi"));
@@ -142,7 +142,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void right2() {
+	public void exercise12_right2() {
 		assertEquals("Input: right2(\"Hello\")", "loHel", exercises.right2("Hello"));
 		assertEquals("Input: right2(\"java\")", "vaja", exercises.right2("java"));
 		assertEquals("Input: right2(\"Hi\")", "Hi", exercises.right2("Hi"));
@@ -152,7 +152,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void theEnd() {
+	public void exercise13_theEnd() {
 		assertEquals("Input: theEnd(\"Hello\", true)", "H", exercises.theEnd("Hello", true));
 		assertEquals("Input: theEnd(\"Hello\", false)", "o", exercises.theEnd("Hello", false));
 		assertEquals("Input: theEnd(\"oh\", true)", "o", exercises.theEnd("oh", true));
@@ -166,7 +166,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void withoutEnd2() {
+	public void exercise14_withoutEnd2() {
 		assertEquals("Input:withoutEnd2(\"Hello\") ", "ell", exercises.withoutEnd2("Hello"));
 		assertEquals("Input: withoutEnd2(\"abc\")", "b", exercises.withoutEnd2("abc"));
 		assertEquals("Input: withoutEnd2(\"ab\")", "", exercises.withoutEnd2("ab"));
@@ -177,7 +177,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void middleTwo() {
+	public void exercise15_middleTwo() {
 		assertEquals("Input: middleTwo(\"string\")", "ri", exercises.middleTwo("string"));
 		assertEquals("Input: middleTwo(\"code\")", "od", exercises.middleTwo("code"));
 		assertEquals("Input: middleTwo(\"Practice\")", "ct", exercises.middleTwo("Practice"));
@@ -186,7 +186,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void endsLy() {
+	public void exercise16_endsLy() {
 		assertEquals("Input: endsLy(\"oddly\")", true, exercises.endsLy("oddly"));
 		assertEquals("Input: endsLy(\"y\")", false, exercises.endsLy("y"));
 		assertEquals("Input: endsLy(\"oddy\")", false, exercises.endsLy("oddy"));
@@ -199,7 +199,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void nTwice() {
+	public void exercise17_nTwice() {
 		assertEquals("Input: nTwice(\"Hello\", 2)", "Helo", exercises.nTwice("Hello", 2));
 		assertEquals("Input: nTwice(\"Chocolate\", 3)", "Choate", exercises.nTwice("Chocolate", 3));
 		assertEquals("Input: nTwice(\"Chocolate\", 1)", "Ce", exercises.nTwice("Chocolate", 1));
@@ -210,7 +210,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void twoChar() {
+	public void exercise18_twoChar() {
 		assertEquals("Input: twoChar(\"java\", 0)", "ja", exercises.twoChar("java", 0));
 		assertEquals("Input: twoChar(\"java\", 2)", "va", exercises.twoChar("java", 2));
 		assertEquals("Input: twoChar(\"java\", 3)", "ja", exercises.twoChar("java", 3));
@@ -229,7 +229,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void middleThree() {
+	public void exercise19_middleThree() {
 		assertEquals("Input: middleThree(\"Candy\")", "and", exercises.middleThree("Candy"));
 		assertEquals("Input: middleThree(\"and\")", "and", exercises.middleThree("and"));
 		assertEquals("Input: middleThree(\"solving\")", "lvi", exercises.middleThree("solving"));
@@ -240,7 +240,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void hasBad() {
+	public void exercise20_hasBad() {
 		assertEquals("Input: hasBad(\"badxx\")", true, exercises.hasBad("badxx"));
 		assertEquals("Input: hasBad(\"xbadxx\")", true, exercises.hasBad("xbadxx"));
 		assertEquals("Input: hasBad(\"xxbadxx\")", false, exercises.hasBad("xxbadxx"));
@@ -254,7 +254,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void stringTimes() {
+	public void exercise21_stringTimes() {
 		assertEquals("Input: stringTimes(\"Hi\", 2)", "HiHi", exercises.stringTimes("Hi", 2));
 		assertEquals("Input: stringTimes(\"Hi\", 3)", "HiHiHi", exercises.stringTimes("Hi", 3));
 		assertEquals("Input: stringTimes(\"Hi\", 1)", "Hi", exercises.stringTimes("Hi", 1));
@@ -268,7 +268,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void frontTimes() {
+	public void exercise22_frontTimes() {
 		assertEquals("Input: frontTimes(\"Chocolate\", 2)", "ChoCho", exercises.frontTimes("Chocolate", 2));
 		assertEquals("Input: frontTimes(\"Chocolate\", 3)", "ChoChoCho", exercises.frontTimes("Chocolate", 3));
 		assertEquals("Input: frontTimes(\"Abc\", 3)", "AbcAbcAbc", exercises.frontTimes("Abc", 3));
@@ -279,7 +279,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void countXX() {
+	public void exercise23_countXX() {
 		assertEquals("Input: countXX(\"abcxx\")", 1, exercises.countXX("abcxx"));
 		assertEquals("Input: countXX(\"xxx\")", 2, exercises.countXX("xxx"));
 		assertEquals("Input: countXX(\"xxxx\")", 3, exercises.countXX("xxxx"));
@@ -292,7 +292,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void doubleX() {
+	public void exercise24_doubleX() {
 		assertEquals("Input: doubleX(\"axxbb\")", true, exercises.doubleX("axxbb"));
 		assertEquals("Input: doubleX(\"axaxax\")", false, exercises.doubleX("axaxax"));
 		assertEquals("Input: doubleX(\"xxxxx\")", true, exercises.doubleX("xxxxx"));
@@ -307,7 +307,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void stringBits() {
+	public void exercise25_stringBits() {
 		assertEquals("Input: stringBits(\"Hello\")", "Hlo", exercises.stringBits("Hello"));
 		assertEquals("Input: stringBits(\"Hi\")", "H", exercises.stringBits("Hi"));
 		assertEquals("Input: stringBits(\"Heeololeo\")", "Hello", exercises.stringBits("Heeololeo"));
@@ -321,7 +321,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void stringSplosion() {
+	public void exercise26_stringSplosion() {
 		assertEquals("Input: stringSplosion(\"Code\")", "CCoCodCode", exercises.stringSplosion("Code"));
 		assertEquals("Input: stringSplosion(\"abc\")", "aababc", exercises.stringSplosion("abc"));
 		assertEquals("Input: stringSplosion(\"abc\")", "aab", exercises.stringSplosion("ab"));
@@ -335,7 +335,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void last2() {
+	public void exercise27_last2() {
 		assertEquals("Input: last2(\"hixxhi\")", 1, exercises.last2("hixxhi"));
 		assertEquals("Input: last2(\"xaxxaxaxx\")", 1, exercises.last2("xaxxaxaxx"));
 		assertEquals("Input: last2(\"axxxaaxx\")", 2, exercises.last2("axxxaaxx"));
@@ -352,7 +352,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void stringX() {
+	public void exercise28_stringX() {
 		assertEquals("Input: stringX(\"xxHxix\")", "xHix", exercises.stringX("xxHxix"));
 		assertEquals("Input: stringX(\"abxxxcd\")", "abcd", exercises.stringX("abxxxcd"));
 		assertEquals("Input: stringX(\"xabxxxcdx\")", "xabcdx", exercises.stringX("xabxxxcdx"));
@@ -364,7 +364,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void altPairs() {
+	public void exercise29_altPairs() {
 		assertEquals("Input: altPairs(\"kitten\")", "kien", exercises.altPairs("kitten"));
 		assertEquals("Input: altPairs(\"Chocolate\")", "Chole", exercises.altPairs("Chocolate"));
 		assertEquals("Input: altPairs(\"CodingHorror\")", "Congrr", exercises.altPairs("CodingHorror"));
@@ -376,7 +376,7 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void stringYak() {
+	public void exercise30_stringYak() {
 		assertEquals("Input: stringYak(\"yakpak\")", "pak", exercises.stringYak("yakpak"));
 		assertEquals("Input: stringYak(\"pakyak\")", "pak", exercises.stringYak("pakyak"));
 		assertEquals("Input: stringYak(\"yak123ya\")", "123ya", exercises.stringYak("yak123ya"));

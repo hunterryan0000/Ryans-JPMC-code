@@ -12,6 +12,8 @@ public class Exercise04_HotelReservation {
     // You can use these constants in your solutions.
     private final double DAILY_RATE = 99.99;
     private final double DISCOUNT_RATE = 89.99;
+    private final double PARKING_RATE = 25.0;
+    private final double LATE_CHECKOUT_FEE = 20.0;
     private final int MINIMUM_NIGHTS_FOR_DISCOUNT_RATE = 3;
 
     /*
@@ -24,42 +26,41 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
-        return 0;
+        return 0.0;
     }
 
     /*
-    The owners of Innovator's Inn realized weekends are more popular than weekdays. Because of this, they've raised
-    the rate for weekend night rates to $99.99 regardless of how many nights a guest is staying.
-    If a guest is staying 3 or more nights, the weekday rate is still $89.99 per night. Otherwise, the $99.99 rate applies.
-    Implement the logic to return the total amount of the stay based on the total number of nights and the number of weekend nights.
-    NOTE: the numOfTotalNights parameter includes weekend nights.
+    The owners of Innovator's Inn offer parking at an additional cost of $25.00 per night.
+    Calculate the stay total based on the number of nights (int) 
+    and on whether the guest requires parking (boolean).
 
     Examples:
-    calculateStayTotal(2, 0) ➔ 199.98
-    calculateStayTotal(2, 1) ➔ 199.98
-    calculateStayTotal(3, 0) ➔ 269.97
-    calculateStayTotal(3, 1) ➔ 279.97
-    calculateStayTotal(3, 2) ➔ 289.97
+    calculateStayTotal(2, false) ➔ 199.98
+    calculateStayTotal(2, true) ➔ 249.98
+    calculateStayTotal(3, false) ➔ 269.97
+    calculateStayTotal(3, true) ➔ 344.97
      */
-    public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights) {
-        return 0;
+    public double calculateStayTotal(int numOfTotalNights, boolean includesParking) {
+        return 0.0;
     }
 
     /*
-    Innovator's Inn continues to grow in popularity and now offers a rewards program to its customers.
-    If a guest is a member of the rewards program, they get a rate of $89.99 per night regardless of the number of nights and weekends.
-    Otherwise, the rates for weekday and weekend nights apply as described in the previous problem.
-    Now implement the logic to return the total amount of a guest's stay based on
-    the total number of nights, the number of weekend nights, and if the guest is a member of the rewards program.
-    NOTE: the numOfTotalNights parameter includes weekend nights.
+    Innovator's Inn offers late checkout—but it comes at a price.
+    A guest can reserve a late checkout for an additional fee of $20. 
+    Calculate the stay total given the number of nights (int), 
+    whether they require parking (boolean), and whether they require a late checkout (boolean). 
 
     Examples:
-    calculateStayTotal(2, 0, false) ➔ 199.98
-    calculateStayTotal(2, 0, true) ➔ 179.98
-    calculateStayTotal(3, 0, true) ➔ 269.97
-    calculateStayTotal(3, 1, true) ➔ 269.97
+    calculateStayTotal(2, false, false) ➔ 199.98
+    calculateStayTotal(2, false, true) ➔ 219.98
+    calculateStayTotal(2, true, false) ➔ 249.98
+    calculateStayTotal(2, true, true) ➔ 269.98
+    calculateStayTotal(3, false, false) ➔ 269.97
+    calculateStayTotal(3, false, true) ➔ 289.97
+    calculateStayTotal(3, true, false) ➔ 344.97
+    calculateStayTotal(3, true, true) ➔ 364.97
      */
-    public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights, boolean isRewardsMember) {
-        return 0;
+    public double calculateStayTotal(int numOfTotalNights, boolean includesParking, boolean includesLateCheckout) {
+        return 0.0;
     }
 }

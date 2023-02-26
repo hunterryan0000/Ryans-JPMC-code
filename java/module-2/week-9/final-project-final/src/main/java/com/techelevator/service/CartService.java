@@ -97,7 +97,8 @@ public class CartService {
     }
 
     public void removeFromCart(Principal principal, int itemId) {
-        int userId = getUserId(principal);
-            cartItemDao.delete(itemId, userId);
+//        int userId = getUserId(principal);
+//            cartItemDao.delete(itemId, userId);
+        cartItemDao.delete(itemId, getUserId(principal));
     }
 }

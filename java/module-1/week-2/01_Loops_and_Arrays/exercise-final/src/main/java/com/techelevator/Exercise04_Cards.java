@@ -1,5 +1,7 @@
 package com.techelevator;
 
+import java.util.Arrays;
+
 public class Exercise04_Cards {
 
     /*
@@ -26,7 +28,7 @@ public class Exercise04_Cards {
     */
     public String getFirstCard(String[] hand) {
         return hand[0];
-    }     
+    }
 
     /*
     One of the players feels lucky and discards the first card from their hand.    
@@ -66,14 +68,24 @@ public class Exercise04_Cards {
     discardTopCard([]) → []
      */
     public String[] discardTopCard(String[] remainingDeck) {
-        int adjustedSize = 0;
+//        int adjustedSize = 0;
+//        if (remainingDeck.length > 0) {
+//            adjustedSize = remainingDeck.length - 1;
+//        }
+//        String[] newDeck = new String[adjustedSize];
+//        for (int i = 1; i < remainingDeck.length; i++) {
+//            newDeck[i-1] = remainingDeck[i];
+//        }
+//        return newDeck;
+
         if (remainingDeck.length > 0) {
-            adjustedSize = remainingDeck.length - 1;
+            String[] newDeck = new String[remainingDeck.length - 1] ;
+            for (int i = 0; i < newDeck.length; i++) {
+                newDeck[i] = remainingDeck[i+1];
+            }
+            remainingDeck = newDeck;
         }
-        String[] newDeck = new String[adjustedSize];
-        for (int i = 1; i < remainingDeck.length; i++) {
-            newDeck[i-1] = remainingDeck[i];
-        }
-        return newDeck;
-    }    
+        return remainingDeck;
+
+    }
 }

@@ -4,7 +4,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
-import com.techelevator.model.CatFact;
 
 @Component
 public class RestCatFactService implements CatFactService {

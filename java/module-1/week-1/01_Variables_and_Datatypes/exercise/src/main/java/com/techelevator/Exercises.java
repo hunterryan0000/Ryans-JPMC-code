@@ -98,7 +98,7 @@ public class Exercises {
 
 
         /* Exercise 15
-        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
+        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2.50 on a pencil
         case. How much money does she have left?
         */
 
@@ -330,7 +330,7 @@ public class Exercises {
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
 	    1.90 hours. How long will it take the two painters working together to paint 5 standard rooms?
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates, 
-        and then divide by the total number of rooms to be painted.
+	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
      
 

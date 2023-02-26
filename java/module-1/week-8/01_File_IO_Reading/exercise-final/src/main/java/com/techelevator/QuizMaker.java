@@ -69,46 +69,56 @@ import java.util.Scanner;
  */
 public class QuizMaker {
 
-	public static void main(String[] args) throws FileNotFoundException {
+	// Use this scanner for all user input. Don't create additional Scanners with System.in
+	private final Scanner userInput = new Scanner(System.in);
 
-		try (Scanner userInput = new Scanner(System.in)) {
+	public static void main(String[] args) {
+		QuizMaker quizMaker = new QuizMaker();
+		quizMaker.run();
+	}
+
+	public void run() {
+		/* Your code goes here */
+		try (userInput) {
 			// Get the path of the input file
 			File inputFile;
-			while(true) {
+			while (true) {
 				System.out.println("Where is the quiz file?");
 				String path = userInput.nextLine();
 				// Validate the input file
 				inputFile = new File(path);
-				if(inputFile.exists() == false) {
-					System.out.println(path+" does not exist");
+				if (!inputFile.exists()) {
+					System.out.println(path + " does not exist");
 					continue;
-				} else if(inputFile.isFile() == false) {
-					System.out.println(path+" is not a file");
+				} else if (!inputFile.isFile()) {
+					System.out.println(path + " is not a file");
 					continue;
 				}
 				break;
 			}
 			// Read through the input file, and build of list of questions, one line at a time.
 			List<QuizQuestion> quizQuestions = new ArrayList<QuizQuestion>();
-			try(Scanner fileScanner = new Scanner(inputFile)) {
-				while(fileScanner.hasNextLine()) {
+			try (Scanner fileScanner = new Scanner(inputFile)) {
+				while (fileScanner.hasNextLine()) {
 					String line = fileScanner.nextLine();
 					quizQuestions.add(new QuizQuestion(line));
 				}
+			} catch (FileNotFoundException e) {
+				System.out.println(e.getMessage());
 			}
 			// Deliver the quiz by displaying the questions along with their possible answers one question at a time. Keep track
 			// of the number of questions asked, and the number of correct answers. 
 			int numberOfQuestions = 0;
 			int numberOfCorrectAnswers = 0;
-			for(QuizQuestion quizQuestion : quizQuestions) {
-				while(true) {
+			for (QuizQuestion quizQuestion : quizQuestions) {
+				while (true) {
 					System.out.println("\n" + quizQuestion.getQuestion());
 					for (int i = 0; i < quizQuestion.getAnswers().length; i++) {
 						System.out.println((i + 1) + ") " + quizQuestion.getAnswers()[i]);
 					}
 					System.out.println("\nYour answer?");
 					String userAnswer = userInput.nextLine();
-					if ((userAnswer.isEmpty() == false) && (userAnswer.matches("[1-4]")) ) {
+					if ((!userAnswer.isEmpty()) && (userAnswer.matches("[1-4]")) ) {
 						if (quizQuestion.isCorrectAnswer(userAnswer)) {
 							System.out.println("Correct!");
 							numberOfCorrectAnswers += 1;

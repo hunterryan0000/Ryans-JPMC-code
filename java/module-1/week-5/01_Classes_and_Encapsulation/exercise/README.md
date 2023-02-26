@@ -143,7 +143,7 @@ Create a method called `raiseSalary` that accepts a `double` called `percent` an
 
 #### Constructors
 
-Create a constructor for this class that accepts three parameters: `String planeNumber`, `int totalFirstClassSeats`, and `int totalCoachSeats`. Use these parameters to set the properties of the class:
+Create a constructor for this class that accepts three parameters: `String planeNumber`, `int totalFirstClassSeats`, and `int totalCoachSeats`. Use these parameters in this order to set the properties of the class:
 
 - `planeNumber` is the plane number assigned to the airplane.
 - `totalFirstClassSeats` is the initial number of total first class seats.
@@ -154,8 +154,8 @@ Create a constructor for this class that accepts three parameters: `String plane
 Create a method called `reserveSeats` that returns a `boolean` and accepts two parameters: a `boolean` called `forFirstClass` and an `int` called `totalNumberOfSeats`.
 
 
-- If `forFirstClass` is `true`, add `totalNumberOfSeats` to the value for `BookedFirstClassSeats`.
-- If `forFirstClass` is `false`, add `totalNumberOfSeats` to the value for `BookedCoachSeats`.
+- If `forFirstClass` is `true`, add `totalNumberOfSeats` to the value for `bookedFirstClassSeats`.
+- If `forFirstClass` is `false`, add `totalNumberOfSeats` to the value for `bookedCoachSeats`.
 - It returns `true` if there were enough seats to make the reservation, otherwise it returns `false` and the number of booked seats doesn't change.
 
 

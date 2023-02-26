@@ -7,21 +7,30 @@ import java.util.Scanner;
 
 public class FizzWriter {
 
+	// Use this scanner for all user input. Don't create additional Scanners with System.in
+	private final Scanner userInput = new Scanner(System.in);
+
 	public static void main(String[] args) {
+		FizzWriter fizzWriter = new FizzWriter();
+		fizzWriter.run();
+	}
+
+	public void run() {
+		/* Your code goes here */
 
 		// Ask the user for a destination file
 		File destinationFile;
 
-		try (Scanner userInput = new Scanner(System.in)) {
+		try (userInput) {
 			System.out.println("What is the destination file?");
 			String path = userInput.nextLine();
 			destinationFile = new File(path);
 			// Validate the destination file
-			if(path == null || path.isEmpty()) {
+			if (path.isEmpty()) {
 				System.out.println("The destination filename is empty");
 				System.exit(0);
 			}
-			if(!destinationFile.getName().endsWith(".txt")) {
+			if (!destinationFile.getName().endsWith(".txt")) {
 				System.out.println("The destination file must end in .txt");
 				System.exit(0);
 			}

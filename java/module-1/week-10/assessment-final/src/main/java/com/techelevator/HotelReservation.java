@@ -41,24 +41,43 @@ public class HotelReservation {
     }
 
     public int getActualTotal(boolean requiresCleaning, boolean usedMinibar) {
-        int MINIBAR_FEE = 15;
-        int CLEANING_FEE = 25;
-        int fees = 0;
+//        int MINIBAR_FEE = 15;
+//        int CLEANING_FEE = 25;
+//        int fees = 0;
+//        if (usedMinibar) {
+//            fees += MINIBAR_FEE;
+//            if (requiresCleaning) {
+//                fees += 2 * CLEANING_FEE;
+//            }
+//        } else {
+//            if (requiresCleaning) {
+//                fees += CLEANING_FEE;
+//            }
+//        }
+//        return this.getEstimatedTotal() + fees;
+//    }
+        int totalFees = 0;
+        final int MINIBAR_FEE = 15;
+        int cleaningFee = 25;
+
         if (usedMinibar) {
-            fees += MINIBAR_FEE;
-            if (requiresCleaning) {
-                fees += 2 * CLEANING_FEE;
-            }
-        } else {
-            if (requiresCleaning) {
-                fees += CLEANING_FEE;
-            }
+            totalFees += MINIBAR_FEE;
+            cleaningFee *= 2;
         }
-        return this.getEstimatedTotal() + fees;
+
+        if (requiresCleaning) {
+            totalFees += cleaningFee;
+        }
+
+        return totalFees + getEstimatedTotal();
+
     }
+
 
     @Override
     public String toString() {
         return name + ":" + getEstimatedTotal();
+        //return String.format("%s:%d", getName(), getEstimatedTotal());
+
     }
 }

@@ -100,6 +100,7 @@ public class ExercisesTest {
 
 		assertTrue("canDrive(true, true, 42, true) should return true", exercise.canDrive(true, true, 42, true));
 		assertTrue("canDrive(true, true, 18, true) should return true", exercise.canDrive(true, true, 18, true));
+		assertTrue("canDrive(true, true, 21, false) should return true", exercise.canDrive(true, true, 21, false));
 		assertFalse("canDrive(true, true, 20, false) should return false", exercise.canDrive(true, true, 20, false));
 		assertFalse("canDrive(true, false, 42, true) should return false", exercise.canDrive(true, false, 42, true));
 		assertFalse("canDrive(false, true, 42, true) should return false", exercise.canDrive(false, true, 42, true));
@@ -107,46 +108,42 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void Exercise03_calculateShippingTotal_1() {
+	public void Exercise03_calculateShipping_1() {
+		Exercise03_ShippingTotal exercise = new Exercise03_ShippingTotal();
+
+		assertEquals("calculateShippingRate(20) should return 0.5", 0.5, exercise.calculateShippingRate(20), 0.001);
+		assertEquals("calculateShippingRate(39) should return 0.5", 0.5, exercise.calculateShippingRate(39), 0.001);
+		assertEquals("calculateShippingRate(40) should return 0.5", 0.5, exercise.calculateShippingRate(40), 0.001);
+		assertEquals("calculateShippingRate(41) should return 0.75", 0.75, exercise.calculateShippingRate(41), 0.001);
+		assertEquals("calculateShippingRate(50) should return 0.75", 0.75, exercise.calculateShippingRate(50), 0.001);
+	}
+
+	@Test
+	public void Exercise03_calculateShipping_2() {
 		Exercise03_ShippingTotal exercise = new Exercise03_ShippingTotal();
 
 		assertEquals("calculateShippingTotal(20) should return 10.0", 10.0, exercise.calculateShippingTotal(20), 0.001);
 		assertEquals("calculateShippingTotal(39) should return 19.5", 19.5, exercise.calculateShippingTotal(39), 0.001);
 		assertEquals("calculateShippingTotal(40) should return 20.0", 20.0, exercise.calculateShippingTotal(40), 0.001);
-		assertEquals("calculateShippingTotal(41) should return 20.75", 20.75, exercise.calculateShippingTotal(41), 0.001);
-		assertEquals("calculateShippingTotal(50) should return 27.5", 27.5, exercise.calculateShippingTotal(50), 0.001);
+		assertEquals("calculateShippingTotal(41) should return 30.75", 30.75, exercise.calculateShippingTotal(41), 0.001);
+		assertEquals("calculateShippingTotal(45) should return 33.75", 33.75, exercise.calculateShippingTotal(45), 0.001);
+		assertEquals("calculateShippingTotal(50) should return 37.5", 37.5, exercise.calculateShippingTotal(50), 0.001);
 	}
 
 	@Test
-	public void Exercise03_calculateShippingTotal_2() {
+	public void Exercise03_calculateShipping_3() {
 		Exercise03_ShippingTotal exercise = new Exercise03_ShippingTotal();
 
 		assertEquals("calculateShippingTotal(20, false) should return 10.0", 10.0, exercise.calculateShippingTotal(20, false), 0.001);
 		assertEquals("calculateShippingTotal(20, true) should return 9.0", 9.0, exercise.calculateShippingTotal(20, true), 0.001);
-		assertEquals("calculateShippingTotal(39, false) should return 19.5", 19.5, exercise.calculateShippingTotal(39, false), 0.001);
-		assertEquals("calculateShippingTotal(39, true) should return 17.55", 17.55, exercise.calculateShippingTotal(39, true), 0.001);
+		assertEquals("calculateShippingTotal(25, false) should return 12.5", 12.5, exercise.calculateShippingTotal(25, false), 0.001);
+		assertEquals("calculateShippingTotal(25, true) should return 11.25", 11.25, exercise.calculateShippingTotal(25, true), 0.001);
 		assertEquals("calculateShippingTotal(40, false) should return 20.0", 20.0, exercise.calculateShippingTotal(40, false), 0.001);
 		assertEquals("calculateShippingTotal(40, true) should return 18.0", 18.0, exercise.calculateShippingTotal(40, true), 0.001);
-		assertEquals("calculateShippingTotal(41, false) should return 20.75", 20.75, exercise.calculateShippingTotal(41, false), 0.001);
-		assertEquals("calculateShippingTotal(41, true) should return 18.675", 18.675, exercise.calculateShippingTotal(41, true), 0.001);
-		assertEquals("calculateShippingTotal(50, false) should return 27.5", 27.5, exercise.calculateShippingTotal(50, false), 0.001);
-		assertEquals("calculateShippingTotal(50, true) should return 24.75", 24.75, exercise.calculateShippingTotal(50, true), 0.001);
-	}
-
-	@Test
-	public void Exercise03_calculateShippingTotal_3() {
-		Exercise03_ShippingTotal exercise = new Exercise03_ShippingTotal();
-
-		assertEquals("calculateShippingTotal(20, 0) should return 10.0", 10.0, exercise.calculateShippingTotal(20, 0), 0.001);
-		assertEquals("calculateShippingTotal(20, 0.50) should return 5.0", 5.0, exercise.calculateShippingTotal(20, 0.50), 0.001);
-		assertEquals("calculateShippingTotal(39, 0) should return 19.5", 19.5, exercise.calculateShippingTotal(39, 0), 0.001);
-		assertEquals("calculateShippingTotal(39, 0.30) should return 13.65", 13.65, exercise.calculateShippingTotal(39, 0.30), 0.001);
-		assertEquals("calculateShippingTotal(40, 0) should return 20.0", 20.0, exercise.calculateShippingTotal(40, 0), 0.001);
-		assertEquals("calculateShippingTotal(40, 0.05) should return 19.0", 19.0, exercise.calculateShippingTotal(40, 0.05), 0.001);
-		assertEquals("calculateShippingTotal(41, 0) should return 20.75", 20.75, exercise.calculateShippingTotal(41, 0), 0.001);
-		assertEquals("calculateShippingTotal(41, 0.10) should return 18.675", 18.675, exercise.calculateShippingTotal(41, 0.10), 0.001);
-		assertEquals("calculateShippingTotal(50, 0) should return 27.5", 27.5, exercise.calculateShippingTotal(50, 0), 0.001);
-		assertEquals("calculateShippingTotal(50, 0.23) should return 21.175", 21.175, exercise.calculateShippingTotal(50, 0.23), 0.001);
+		assertEquals("calculateShippingTotal(41, false) should return 30.75", 30.75, exercise.calculateShippingTotal(41, false), 0.001);
+		assertEquals("calculateShippingTotal(41, true) should return 27.675", 27.675, exercise.calculateShippingTotal(41, true), 0.001);
+		assertEquals("calculateShippingTotal(45, false) should return 33.75", 33.75, exercise.calculateShippingTotal(45, false), 0.001);
+		assertEquals("calculateShippingTotal(45, true) should return 30.375", 30.375, exercise.calculateShippingTotal(45, true), 0.001);
 	}
 
 	@Test
@@ -164,61 +161,29 @@ public class ExercisesTest {
 	public void Exercise04_calculateStayTotal_2() {
 		Exercise04_HotelReservation exercise = new Exercise04_HotelReservation();
 
-		assertEquals("calculateStayTotal(1, 0) should return 99.99", 99.99, exercise.calculateStayTotal(1, 0), 0.001);
-		assertEquals("calculateStayTotal(1, 1) should return 99.99", 99.99, exercise.calculateStayTotal(1, 1), 0.001);
-		assertEquals("calculateStayTotal(2, 0) should return 199.98", 199.98, exercise.calculateStayTotal(2, 0), 0.001);
-		assertEquals("calculateStayTotal(2, 1) should return 199.98", 199.98, exercise.calculateStayTotal(2, 1), 0.001);
-		assertEquals("calculateStayTotal(3, 0) should return 269.97", 269.97, exercise.calculateStayTotal(3, 0), 0.001);
-		assertEquals("calculateStayTotal(3, 1) should return 279.97", 279.97, exercise.calculateStayTotal(3, 1), 0.001);
-		assertEquals("calculateStayTotal(3, 2) should return 289.97", 289.97, exercise.calculateStayTotal(3, 2), 0.001);
-		assertEquals("calculateStayTotal(4, 0) should return 359.96", 359.96, exercise.calculateStayTotal(4, 0), 0.001);
-		assertEquals("calculateStayTotal(4, 1) should return 369.96", 369.96, exercise.calculateStayTotal(4, 1), 0.001);
-		assertEquals("calculateStayTotal(4, 2) should return 379.96", 379.96, exercise.calculateStayTotal(4, 2), 0.001);
-		assertEquals("calculateStayTotal(10, 0) should return 899.9", 899.9, exercise.calculateStayTotal(10, 0), 0.001);
-		assertEquals("calculateStayTotal(10, 1) should return 909.9", 909.9, exercise.calculateStayTotal(10, 1), 0.001);
-		assertEquals("calculateStayTotal(10, 2) should return 919.9", 919.9, exercise.calculateStayTotal(10, 2), 0.001);
-		assertEquals("calculateStayTotal(10, 3) should return 929.9", 929.9, exercise.calculateStayTotal(10, 3), 0.001);
-		assertEquals("calculateStayTotal(10, 4) should return 939.9", 939.9, exercise.calculateStayTotal(10, 4), 0.001);
+		assertEquals("calculateStayTotal(1, false) should return 99.99", 99.99, exercise.calculateStayTotal(1, false), 0.001);
+		assertEquals("calculateStayTotal(1, true) should return 124.99", 124.99, exercise.calculateStayTotal(1, true), 0.001);
+		assertEquals("calculateStayTotal(2, false) should return 199.98", 199.98, exercise.calculateStayTotal(2, false), 0.001);
+		assertEquals("calculateStayTotal(2, true) should return 249.98", 249.98, exercise.calculateStayTotal(2, true), 0.001);
+		assertEquals("calculateStayTotal(3, false) should return 269.97", 269.97, exercise.calculateStayTotal(3, false), 0.001);
+		assertEquals("calculateStayTotal(3, true) should return 344.97", 344.97, exercise.calculateStayTotal(3, true), 0.001);
+		assertEquals("calculateStayTotal(4, false) should return 359.96", 359.96, exercise.calculateStayTotal(4, false), 0.001);
+		assertEquals("calculateStayTotal(4, true) should return 459.96", 459.96, exercise.calculateStayTotal(4, true), 0.001);
 	}
 
 	@Test
 	public void Exercise04_calculateStayTotal_3() {
 		Exercise04_HotelReservation exercise = new Exercise04_HotelReservation();
 
-		assertEquals("calculateStayTotal(1, 0, false) should return 99.99", 99.99, exercise.calculateStayTotal(1, 0, false), 0.001);
-		assertEquals("calculateStayTotal(1, 0, true) should return 89.99", 89.99, exercise.calculateStayTotal(1, 0, true), 0.001);
-		assertEquals("calculateStayTotal(1, 1, false) should return 99.99", 99.99, exercise.calculateStayTotal(1, 1, false), 0.001);
-		assertEquals("calculateStayTotal(1, 1, true) should return 89.99", 89.99, exercise.calculateStayTotal(1, 1, true), 0.001);
+		assertEquals("calculateStayTotal(2, false, false) should return 199.98", 199.98, exercise.calculateStayTotal(2, false, false), 0.001);
+		assertEquals("calculateStayTotal(2, false, true) should return 219.98", 219.98, exercise.calculateStayTotal(2, false, true), 0.001);
+		assertEquals("calculateStayTotal(2, true, false) should return 249.98", 249.98, exercise.calculateStayTotal(2, true, false), 0.001);
+		assertEquals("calculateStayTotal(2, true, true) should return 269.98", 269.98, exercise.calculateStayTotal(2, true, true), 0.001);
 
-		assertEquals("calculateStayTotal(2, 0, false) should return 199.98", 199.98, exercise.calculateStayTotal(2, 0, false), 0.001);
-		assertEquals("calculateStayTotal(2, 0, true) should return 179.98", 179.98, exercise.calculateStayTotal(2, 0, true), 0.001);
-		assertEquals("calculateStayTotal(2, 1, false) should return 199.98", 199.98, exercise.calculateStayTotal(2, 1, false), 0.001);
-		assertEquals("calculateStayTotal(2, 1, true) should return 179.98", 179.98, exercise.calculateStayTotal(2, 1, true), 0.001);
-
-		assertEquals("calculateStayTotal(3, 0, false) should return 269.97", 269.97, exercise.calculateStayTotal(3, 0, false), 0.001);
-		assertEquals("calculateStayTotal(3, 0, true) should return 269.97", 269.97, exercise.calculateStayTotal(3, 0, true), 0.001);
-		assertEquals("calculateStayTotal(3, 1, false) should return 279.97", 279.97, exercise.calculateStayTotal(3, 1, false), 0.001);
-		assertEquals("calculateStayTotal(3, 1, true) should return 269.97", 269.97, exercise.calculateStayTotal(3, 1, true), 0.001);
-		assertEquals("calculateStayTotal(3, 2, false) should return 289.97", 289.97, exercise.calculateStayTotal(3, 2, false), 0.001);
-		assertEquals("calculateStayTotal(3, 2, true) should return 269.97", 269.97, exercise.calculateStayTotal(3, 2, true), 0.001);
-
-		assertEquals("calculateStayTotal(4, 0, false) should return 359.96", 359.96, exercise.calculateStayTotal(4, 0, false), 0.001);
-		assertEquals("calculateStayTotal(4, 0, true) should return 359.96", 359.96, exercise.calculateStayTotal(4, 0, true), 0.001);
-		assertEquals("calculateStayTotal(4, 1, false) should return 369.96", 369.96, exercise.calculateStayTotal(4, 1, false), 0.001);
-		assertEquals("calculateStayTotal(4, 1, true) should return 359.96", 359.96, exercise.calculateStayTotal(4, 1, true), 0.001);
-		assertEquals("calculateStayTotal(4, 2, false) should return 379.96", 379.96, exercise.calculateStayTotal(4, 2, false), 0.001);
-		assertEquals("calculateStayTotal(4, 2, true) should return 359.96", 359.96, exercise.calculateStayTotal(4, 2, true), 0.001);
-
-		assertEquals("calculateStayTotal(10, 0, false) should return 899.9", 899.9, exercise.calculateStayTotal(10, 0, false), 0.001);
-		assertEquals("calculateStayTotal(10, 0, true) should return 899.9", 899.9, exercise.calculateStayTotal(10, 0, true), 0.001);
-		assertEquals("calculateStayTotal(10, 1, false) should return 909.9", 909.9, exercise.calculateStayTotal(10, 1, false), 0.001);
-		assertEquals("calculateStayTotal(10, 1, true) should return 899.9", 899.9, exercise.calculateStayTotal(10, 1, true), 0.001);
-		assertEquals("calculateStayTotal(10, 2, false) should return 919.9", 919.9, exercise.calculateStayTotal(10, 2, false), 0.001);
-		assertEquals("calculateStayTotal(10, 2, true) should return 899.9", 899.9, exercise.calculateStayTotal(10, 2, true), 0.001);
-		assertEquals("calculateStayTotal(10, 3, false) should return 929.9", 929.9, exercise.calculateStayTotal(10, 3, false), 0.001);
-		assertEquals("calculateStayTotal(10, 3, true) should return 899.9", 899.9, exercise.calculateStayTotal(10, 3, true), 0.001);
-		assertEquals("calculateStayTotal(10, 4, false) should return 939.9", 939.9, exercise.calculateStayTotal(10, 4, false), 0.001);
-		assertEquals("calculateStayTotal(10, 4, true) should return 899.9", 899.9, exercise.calculateStayTotal(10, 4, true), 0.001);
+		assertEquals("calculateStayTotal(3, false, false) should return 269.97", 269.97, exercise.calculateStayTotal(3, false, false), 0.001);
+		assertEquals("calculateStayTotal(3, false, true) should return 289.97", 289.97, exercise.calculateStayTotal(3, false, true), 0.001);
+		assertEquals("calculateStayTotal(3, true, false) should return 344.97", 344.97, exercise.calculateStayTotal(3, true, false), 0.001);
+		assertEquals("calculateStayTotal(3, true, true) should return 364.97", 364.97, exercise.calculateStayTotal(3, true, true), 0.001);
 	}
 
 	@Test
@@ -260,82 +225,43 @@ public class ExercisesTest {
 	}
 
 	@Test
-	public void Exercise06_calculateElectricBill_1() {
-		Exercise06_ElectricBill exercise = new Exercise06_ElectricBill();
+	public void Exercise06_raceDay_1() {
+		Exercise06_RaceDay exercise = new Exercise06_RaceDay();
 
-		assertEquals("calculateElectricBill(10) should return 2.0", 2.0, exercise.calculateElectricBill(10), 0.001);
-		assertEquals("calculateElectricBill(52.2) should return 10.44", 10.44, exercise.calculateElectricBill(52.2), 0.001);
-		assertEquals("calculateElectricBill(76.1) should return 15.22", 15.22, exercise.calculateElectricBill(76.1), 0.001);
-		assertEquals("calculateElectricBill(100) should return 20.0", 20.0, exercise.calculateElectricBill(100), 0.001);
-
-		assertEquals("calculateElectricBill(100.1) should return 20.025", 20.025, exercise.calculateElectricBill(100.1), 0.001);
-		assertEquals("calculateElectricBill(101) should return 20.25", 20.25, exercise.calculateElectricBill(101), 0.001);
-		assertEquals("calculateElectricBill(128.4) should return 27.1", 27.1, exercise.calculateElectricBill(128.4), 0.001);
-		assertEquals("calculateElectricBill(137) should return 29.25", 29.25, exercise.calculateElectricBill(137), 0.001);
-		assertEquals("calculateElectricBill(200) should return 45.0", 45.0, exercise.calculateElectricBill(200), 0.001);
+		assertEquals("determineRaceBlock(17, false) should return 3", 3, exercise.determineRaceBlock(17, false));
+		assertEquals("determineRaceBlock(17, true) should return 3", 3, exercise.determineRaceBlock(17, true));
+		assertEquals("determineRaceBlock(18, false) should return 2", 2, exercise.determineRaceBlock(18, false));
+		assertEquals("determineRaceBlock(18, true) should return 1", 1, exercise.determineRaceBlock(18, true));
+		assertEquals("determineRaceBlock(30, false) should return 2", 2, exercise.determineRaceBlock(30, false));
+		assertEquals("determineRaceBlock(30, true) should return 1", 1, exercise.determineRaceBlock(30, true));
 	}
 
 	@Test
-	public void Exercise06_calculateElectricBill_2() {
-		Exercise06_ElectricBill exercise = new Exercise06_ElectricBill();
+	public void Exercise06_raceDay_2() {
+		Exercise06_RaceDay exercise = new Exercise06_RaceDay();
 
-		assertEquals("calculateElectricBill(10, false) should return 2.0", 2.0, exercise.calculateElectricBill(10, false), 0.001);
-		assertEquals("calculateElectricBill(10, true) should return 1.9", 1.9, exercise.calculateElectricBill(10, true), 0.001);
-		assertEquals("calculateElectricBill(52.2, false) should return 10.44", 10.44, exercise.calculateElectricBill(52.2, false), 0.001);
-		assertEquals("calculateElectricBill(52.2, true) should return 9.918", 9.918, exercise.calculateElectricBill(52.2, true), 0.001);
-		assertEquals("calculateElectricBill(76.1, false) should return 15.22", 15.22, exercise.calculateElectricBill(76.1, false), 0.001);
-		assertEquals("calculateElectricBill(76.1, true) should return 14.459", 14.459, exercise.calculateElectricBill(76.1, true), 0.001);
-		assertEquals("calculateElectricBill(100, false) should return 20.0", 20.0, exercise.calculateElectricBill(100, false), 0.001);
-		assertEquals("calculateElectricBill(100, true) should return 19.0", 19.0, exercise.calculateElectricBill(100, true), 0.001);
-
-		assertEquals("calculateElectricBill(100.1, false) should return 20.025", 20.025, exercise.calculateElectricBill(100.1, false), 0.001);
-		assertEquals("calculateElectricBill(100.1, true) should return 19.02375", 19.02375, exercise.calculateElectricBill(100.1, true), 0.001);
-		assertEquals("calculateElectricBill(101, false) should return 20.25", 20.25, exercise.calculateElectricBill(101, false), 0.001);
-		assertEquals("calculateElectricBill(101, true) should return 19.2375", 19.2375, exercise.calculateElectricBill(101, true), 0.001);
-		assertEquals("calculateElectricBill(128.4, false) should return 27.1", 27.1, exercise.calculateElectricBill(128.4, false), 0.001);
-		assertEquals("calculateElectricBill(128.4, true) should return 25.745", 25.745, exercise.calculateElectricBill(128.4, true), 0.001);
-		assertEquals("calculateElectricBill(137, false) should return 29.25", 29.25, exercise.calculateElectricBill(137, false), 0.001);
-		assertEquals("calculateElectricBill(137, true) should return 27.7875", 27.7875, exercise.calculateElectricBill(137, true), 0.001);
-		assertEquals("calculateElectricBill(200, false) should return 45.0", 45.0, exercise.calculateElectricBill(200, false), 0.001);
-		assertEquals("calculateElectricBill(200, true) should return 42.75", 42.75, exercise.calculateElectricBill(200, true), 0.001);
+		assertEquals("getBibNumber(17, 500, false) should return 500", 500, exercise.getBibNumber(17, 500, false));
+		assertEquals("getBibNumber(17, 500, true) should return 500", 500, exercise.getBibNumber(17, 500, true));
+		assertEquals("getBibNumber(18, 600, false) should return 600", 600, exercise.getBibNumber(18, 600, false));
+		assertEquals("getBibNumber(18, 600, true) should return 1600", 1600, exercise.getBibNumber(18, 600, true));
+		assertEquals("getBibNumber(30, 700, false) should return 700", 700, exercise.getBibNumber(30, 700, false));
+		assertEquals("getBibNumber(30, 700, true) should return 1700", 1700, exercise.getBibNumber(30, 700, true));
 	}
 
 	@Test
-	public void Exercise06_calculateElectricBill_3() {
-		Exercise06_ElectricBill exercise = new Exercise06_ElectricBill();
+	public void Exercise06_raceDay_3() {
+		Exercise06_RaceDay exercise = new Exercise06_RaceDay();
 
-		assertEquals("calculateElectricBill(10, 0) should return 2.0", 2.0, exercise.calculateElectricBill(10, 0), 0.001);
-		assertEquals("calculateElectricBill(10, 1) should return 1.71", 1.71, exercise.calculateElectricBill(10, 1), 0.001);
-		assertEquals("calculateElectricBill(10, 11) should return -0.2", -0.2, exercise.calculateElectricBill(10, 11), 0.001);
-		assertEquals("calculateElectricBill(52.2, 0) should return 10.44", 10.44, exercise.calculateElectricBill(52.2, 0), 0.001);
-		assertEquals("calculateElectricBill(52.2, 10) should return 8.018", 8.018, exercise.calculateElectricBill(52.2, 10), 0.001);
-		assertEquals("calculateElectricBill(52.2, 100) should return -9.56", -9.56, exercise.calculateElectricBill(52.2, 100), 0.001);
-		assertEquals("calculateElectricBill(76.1, 0) should return 15.22", 15.22, exercise.calculateElectricBill(76.1, 0), 0.001);
-		assertEquals("calculateElectricBill(76.1, 23.1) should return 10.07", 10.07, exercise.calculateElectricBill(76.1, 23.1), 0.001);
-		assertEquals("calculateElectricBill(76.1, 123) should return -9.38", -9.38, exercise.calculateElectricBill(76.1, 123), 0.001);
-		assertEquals("calculateElectricBill(100, 0) should return 20.0", 20.0, exercise.calculateElectricBill(100, 0), 0.001);
-		assertEquals("calculateElectricBill(100, 37) should return 11.97", 11.97, exercise.calculateElectricBill(100, 37), 0.001);
-		assertEquals("calculateElectricBill(100, 100) should return 0.0", 0.0, exercise.calculateElectricBill(100, 100), 0.001);
-		assertEquals("calculateElectricBill(100, 137.23) should return -7.446", -7.446, exercise.calculateElectricBill(100, 137.23), 0.001);
-
-		assertEquals("calculateElectricBill(100.1, 0) should return 20.025", 20.025, exercise.calculateElectricBill(100.1, 0), 0.001);
-		assertEquals("calculateElectricBill(100.1, 2.2) should return 18.601", 18.601, exercise.calculateElectricBill(100.1, 2.2), 0.001);
-		assertEquals("calculateElectricBill(101, 0) should return 20.25", 20.25, exercise.calculateElectricBill(101, 0), 0.001);
-		assertEquals("calculateElectricBill(101, 1) should return 19.0", 19.0, exercise.calculateElectricBill(101, 1), 0.001);
-		assertEquals("calculateElectricBill(101, 152) should return -10.2", -10.2, exercise.calculateElectricBill(101, 152), 0.001);
-		assertEquals("calculateElectricBill(120, 0) should return 25.0", 25.0, exercise.calculateElectricBill(120, 0), 0.001);
-		assertEquals("calculateElectricBill(120, 10) should return 21.375", 21.375, exercise.calculateElectricBill(120, 10), 0.001);
-		assertEquals("calculateElectricBill(120, 20.1) should return 18.981", 18.981, exercise.calculateElectricBill(120, 20.1), 0.001);
-		assertEquals("calculateElectricBill(120, 200) should return -16.0", -16.0, exercise.calculateElectricBill(120, 200), 0.001);
-		assertEquals("calculateElectricBill(137, 0) should return 29.25", 29.25, exercise.calculateElectricBill(137, 0), 0.001);
-		assertEquals("calculateElectricBill(137, 18.2) should return 23.465", 23.465, exercise.calculateElectricBill(137, 18.2), 0.001);
-		assertEquals("calculateElectricBill(137, 40) should return 18.43", 18.43, exercise.calculateElectricBill(137, 40), 0.001);
-		assertEquals("calculateElectricBill(200, 0) should return 45.0", 45.0, exercise.calculateElectricBill(200, 0), 0.001);
-		assertEquals("calculateElectricBill(200, 50) should return 30.875", 30.875, exercise.calculateElectricBill(200, 50), 0.001);
-		assertEquals("calculateElectricBill(200, 150) should return 9.5", 9.5, exercise.calculateElectricBill(200, 150), 0.001);
-		assertEquals("calculateElectricBill(200, 500) should return -60.0", -60.0, exercise.calculateElectricBill(200, 500), 0.001);
+		assertEquals("getConfirmedBibNumber(17, 500, false) should return 500", 500, exercise.getConfirmedBibNumber(17, 500, false));
+		assertEquals("getConfirmedBibNumber(17, 500, true) should return 500", 500, exercise.getConfirmedBibNumber(17, 500, true));
+		assertEquals("getConfirmedBibNumber(18, 600, false) should return 600", 600, exercise.getConfirmedBibNumber(18, 600, false));
+		assertEquals("getConfirmedBibNumber(18, 600, true) should return 1600", 1600, exercise.getConfirmedBibNumber(18, 600, true));
+		assertEquals("getConfirmedBibNumber(30, 700, false) should return 700", 700, exercise.getConfirmedBibNumber(30, 700, false));
+		assertEquals("getConfirmedBibNumber(30, 700, true) should return 1700", 1700, exercise.getConfirmedBibNumber(30, 700, true));
+		assertEquals("getConfirmedBibNumber(30, 1001, false) should return -1", -1, exercise.getConfirmedBibNumber(30, 1001, false));
+		assertEquals("getConfirmedBibNumber(30, 1001, true) should return 2001", 2001, exercise.getConfirmedBibNumber(30, 1001, true));
 	}
-
+	
 	@Test
 	public void Exercise07_isStoreOpen_1() {
 		Exercise07_StoreHours exercise = new Exercise07_StoreHours();

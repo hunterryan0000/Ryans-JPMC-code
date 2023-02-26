@@ -11,13 +11,11 @@ After completing this exercise, you'll understand:
 
 ## Evaluation criteria and functional requirements
 
-The evaluation of your code is based on the following criteria:
-
 * The project must not have any build errors.
-* The expected results are sent to a file.
-* Paths to files aren't hard-coded—that is, the code shouldn't need to be changed to run the application for a different file.
+* The program writes the expected results to a file.
+* Paths to files aren't hard-coded—in other words, the user must be able to enter the path to the input file.
 * The unit tests pass as expected.
-  * Note: Tests are provided for the FindAndReplace and FizzWriter exercises only.
+  * Note: Tests are only provided for the FindAndReplace and FizzWriter exercises.
 
 ## Part One: Create a find and replace program
 
@@ -32,7 +30,7 @@ The program must prompt the user for the following values:
 * The destination file
   * *The program creates a copy of the source file with the requested replacements at this location. If the file already exists, it must be overwritten. If the user enters an invalid destination file, the program indicates this to the user and exits.*
 
-> Note: This is a case-sensitive search. If your search word is `Bacon`, then `bacon` shouldn't be replaced.
+> Note: This is a case-sensitive search. If your search word is `Bacon`, then you must not replace `bacon`.
 
 Here's an example of what your application could look like:
 
@@ -76,7 +74,7 @@ apple Bacon coconut bacon
 bread bacon carrot cherry
 ```
 
-Remember that the search is case-sensitive, which is why only the capitalized `Apple` is replaced.
+Remember that the search is case-sensitive, which is why it only replaces the capitalized `Apple`.
 
 #### No occurrences
 
@@ -93,7 +91,7 @@ The tests for this exercise are in the file `src/test/java/com/techelevator/Find
 
 ## Part Two: Create a FizzWriter program
 
-Create a program that writes out the result of FizzBuzz (1 to 300) to a file.
+Create a program that writes out the result of FizzBuzz (1 to 300) to a file:
 
 * If the number is divisible by 3, print `Fizz`.
 * If the number is divisible by 5, print `Buzz`.
@@ -111,7 +109,7 @@ The tests for this exercise are in the file `src/test/java/com/techelevator/Fizz
 
 Create an application that takes a significantly large input file and splits it into smaller file chunks. These types of files were common back when floppy disks were popular and couldn't hold a larger program on their own.
 
-To determine how many files need to be produced, ask the user for the maximum amount of lines to appear in each output file.
+To determine how many files you need to create, ask the user for the maximum amount of lines to appear in each output file.
 
 Sample Input/Output:
 ```
@@ -170,18 +168,18 @@ Here are a few things to keep in mind:
     ```
 * Use the `less` command or your favorite text editor to verify the contents of the file are what you expect them to be.
 * The input filename must be the prefix—the first part of the filename—followed by a dash (`-`), then the number of the current file, and finally ending with the file extension of the input file. For instance, if the name of the file is `big-old-file.md`, the filenames must be `big-old-file-1.md`, `big-old-file-2.md`, etc.
-* Output files are written to the directory the input file is in.
+* Write the output files to the same directory the input file is in.
 * The application must run and exit. You shouldn't need to press a key to stop the application.
 
 ## Tips and tricks
 
 ### Use the `wc` command to verify your work
 
-Verify your work on the command line by running the `wc` command specified in the requirements. The `wc` command displays the number of lines, words, and bytes contained in each input file, or standard input—if no file is specified—to the standard output.
+Verify your work on the command line by running the `wc` command specified in the requirements. The `wc` command displays the number of lines, words, and bytes contained in each input file.
 
-A line is defined as a string of characters delimited by a newline character. Characters beyond the final newline character aren't included in the line count. The `-l` flag determines the number of lines in the file, and the `-w` flag determines the number of words in the file.
+The definition of a line is a string of characters ending with a newline character. Characters beyond the final newline character aren't included in the line count. The `-l` flag determines the number of lines in the file, and the `-w` flag determines the number of words in the file.
 
-For more information about what `wc` provides, try typing `man wc`. You can use `man` in the terminal with any command to learn more about the command and how it works.
+For more information about what `wc` provides, try typing `wc --help`. Many commands in the terminal have a `--help` option to help the user learn more about the command and how it works.
 
 ### Learn more about the File class
 

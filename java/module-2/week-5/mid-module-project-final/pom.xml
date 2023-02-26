@@ -61,7 +61,13 @@
 			<artifactId>junit-vintage-engine</artifactId>
 			<version>${junit.version}</version>
 		</dependency>
-	</dependencies>
+        <dependency>
+            <groupId>com.techelevator</groupId>
+            <artifactId>module-02-midterm-project</artifactId>
+            <version>1.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 	<build>
 		<plugins>
 			<plugin>

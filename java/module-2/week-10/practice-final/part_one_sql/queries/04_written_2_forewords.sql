@@ -3,12 +3,19 @@
 -- Order by full_name ascending.
 -- (7 rows)
 
-SELECT first_name || ' ' || last_name AS full_name, foreword_count 
-FROM (
-    SELECT foreword_by, COUNT(foreword_by) AS foreword_count 
-    FROM book 
-    GROUP BY foreword_by
-) AS sub
-    INNER JOIN person ON sub.foreword_by = person.person_id
-    WHERE foreword_count >= 2
-ORDER BY full_name ASC;
+--SELECT first_name || ' ' || last_name AS full_name, foreword_count
+--FROM (
+--    SELECT foreword_by, COUNT(foreword_by) AS foreword_count
+--    FROM book
+--    GROUP BY foreword_by
+--) AS sub
+--    JOIN person ON sub.foreword_by = person.person_id
+--    WHERE foreword_count >= 2
+--ORDER BY full_name ASC;
+
+SELECT first_name || ' ' || last_name AS full_name, COUNT(foreword_by) AS foreword_count
+    FROM book
+    JOIN person ON book.foreword_by = person.person_id
+    GROUP BY full_name, foreword_by
+    HAVING COUNT(foreword_by) >= 2
+    ORDER BY full_name ASC;

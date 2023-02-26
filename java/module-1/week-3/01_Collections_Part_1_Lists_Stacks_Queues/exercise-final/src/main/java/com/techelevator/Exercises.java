@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -109,14 +110,17 @@ public class Exercises {
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
 		int foundCount = 0;
+
 		for (Integer currentInteger : integerList) {
+
 			if (currentInteger == intToFind) {
-				if (foundCount >= 1) {
-					//No point continuing, we just found the second occurrence.
-					return true;
-				}
 				foundCount++;
 			}
+			if (foundCount >= 2) {
+				//No point continuing, we just found the second occurrence.
+				return true;
+			}
+
 		}
 		return false;
 	}
@@ -135,6 +139,7 @@ public class Exercises {
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
 		List<String> stringList = new ArrayList<>();
+
 		boolean multipleOfThree;
 		boolean multipleOfFive;
 		for (Integer currentInteger : integerArray) {
@@ -159,21 +164,33 @@ public class Exercises {
 	 Return the new list. If the lists are of unequal lengths, simply attach the remaining elements of the longer
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
+     interleaveLists( [7, 1, 3], [2, 5, 7, 9] )  ->  [7, 2, 1, 5, 3, 7, 9]
+     interleaveLists( [1, 2, 5, 8, 10], [4, 5, 6] )  ->  [1, 4, 2, 5, 5, 6, 8, 10]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 		int minListLength = Math.min(listOne.size(), listTwo.size());
-		List<Integer> output = new ArrayList<>();
 
+		List<Integer> output = new ArrayList<>();
 		for (int i = 0; i < minListLength; i++) {
 			output.add(listOne.get(i));
 			output.add(listTwo.get(i));
 		}
 
-		// Add remainder Logic
+/**		 Add remainder Logic */
 		List<Integer> longerList = (listOne.size() > listTwo.size()) ? listOne : listTwo;
 		for (int i = minListLength; i < longerList.size(); i++) {
 			output.add(longerList.get(i));
 		}
+
+//		List<Integer> longerList = new ArrayList<>();
+//		if (listOne.size() > listTwo.size()){
+//			longerList = listOne;
+//		} else {
+//			longerList = listTwo;
+//		}
+//		for (int i = minListLength; i < longerList.size(); i++) {
+//			output.add(longerList.get(i));
+//		}
 
 		return output;
 	}

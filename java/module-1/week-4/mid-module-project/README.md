@@ -241,4 +241,17 @@ Add a second parameter `int primaryField` to `displaySearchResults()`. The prima
 
 **Challenge: 2**
 
-Sort the output of the challenge `displaySearchResults()` method by the primary field followed by the secondary fields.
+Sort the output of the challenge `displaySearchResults()` method by the primary field.
+
+Add a *helper* method `sortSearchResults` to sort the list of indexes and call this method before the loop inside of displaySearchResults().
+```java
+private void sortSearchResults(List<Integer> indexes, int primaryField)
+```
+> Recommendation: There are many algorithms (or ways) to sort data. One of the most straightforward (but not the fastest) is the **bubble sort**, which gets its name from appearing to *bubble* data to the top.
+>
+> In a bubble sort, you start at the beginning of the list and compare the first two values. If the 1st sorts after the 2nd, you swap them. Then you move on to compare the 2nd and 3rd, again swapping them if the 2nd sorts after the 3rd. Continue to repeat this until you get to the end of the list. Now the value that sorts last is at the end of the list. Since this only moves one value, you must to go back to the beginning of the list and repeat the process again until you pass through the list without swapping a value. To make things a little more efficient, you can check one less item each time through the list, since the last item looked at is always where it belongs. 
+>
+>The following animated image walks through the bubble sort process using a list of numbers. 
+![Bubble Sort](img/bubble-sort.gif)
+>
+> There is also a full, text-based, static image of the preceding animated image in the `img` folder. Use this to view the walk-through at your own pace. 

@@ -51,6 +51,8 @@ header img {
   border-radius: 50%;
 }
 
+/* Student Code */
+
 #main-grid {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
@@ -118,6 +120,7 @@ header img {
   grid-area: experience-design;
 }
 
+/* For Tablet */
 @media (max-width: 1024px) {
   #main-grid {
     grid-template-columns: 1fr 1fr;
@@ -138,6 +141,7 @@ header img {
   }
 }
 
+/* Phone */
 @media (max-width: 450px) {
   #main-grid {
     grid-template-columns: 1fr;

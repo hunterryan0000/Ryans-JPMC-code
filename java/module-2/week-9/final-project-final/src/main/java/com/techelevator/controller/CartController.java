@@ -25,6 +25,7 @@ public class CartController {
     // Get the user's cart
     @RequestMapping(path = "", method = RequestMethod.GET)
     public Cart get(Principal principal) {
+
         return cartService.getUserCart(principal);
     }
 

@@ -6,6 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 import org.springframework.dao.DataIntegrityViolationException;
 
+import javax.sql.DataSource;
 import java.util.List;
 
 public class JdbcCustomerDaoTests extends BaseDaoTests {
@@ -20,7 +21,7 @@ public class JdbcCustomerDaoTests extends BaseDaoTests {
 
     @Before
     public void setup() {
-        customerDao = new JdbcCustomerDao(dataSource);
+        customerDao = new JdbcCustomerDao(dataSource1);
         testCustomer = new Customer(0, "Test Customer", "Test Addr 1", "Test Addr 2", "Test City", "TS", "98765");
     }
 

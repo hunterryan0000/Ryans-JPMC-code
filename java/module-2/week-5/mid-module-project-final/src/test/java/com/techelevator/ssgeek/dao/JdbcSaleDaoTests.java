@@ -21,7 +21,7 @@ public class JdbcSaleDaoTests extends BaseDaoTests {
     
     @Before
     public void setup() {
-        saleDao = new JdbcSaleDao(dataSource);
+        saleDao = new JdbcSaleDao(dataSource1);
         testSale = new Sale(1, 1, LocalDate.now(), null);
     }
 

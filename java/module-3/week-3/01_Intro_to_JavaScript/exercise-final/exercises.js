@@ -30,18 +30,19 @@ function seeColor(input) {
   return result;
 }
 
-function frontAgain(word) {
-  return word.substring(0, 2) == word.substring(word.length - 2);
-}
-
 function oddOnly(values) {
   const newValues = [];
+  // let newValues = [];
   for (let i = 0; i < values.length; i++) {
     if (values[i] % 2 == 1) {
       newValues.push(values[i]);
     }
   }
   return newValues;
+}
+
+function frontAgain(word) {
+  return word.substring(0, 2) == word.substring(word.length - 2);
 }
 
 function cigarParty(cigarCount, isWeekend) {
@@ -87,10 +88,11 @@ function filterBigNumbers(values) {
   return newValues;
 }
 
-function filterMultiplesOfX(values, multipleOf) {
-  const newValues = [];
+function filterMultiplesOfX(values, x) {
+  const newValues = new Array();
+  //const newValues = [];
   for (let i = 0; i < values.length; i++) {
-    if (values[i] % multipleOf == 0) {
+    if (values[i] % x == 0) {
       newValues.push(values[i]);
     }
   }

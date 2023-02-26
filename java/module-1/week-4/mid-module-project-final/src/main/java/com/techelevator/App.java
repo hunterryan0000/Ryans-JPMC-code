@@ -87,9 +87,10 @@ public class App {
                          Replace `displayTitlesList(titles)` with calls to the
                          `filterByTitle()` and `displaySearchResults()` methods.
                          */
-                        List<Integer> foundIndexes = filterByTitle(filterTitle);
-                        displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+//                        List<Integer> foundIndexes = filterByTitle(filterTitle);
+//                        displaySearchResults(foundIndexes);
+                        displaySearchResults(filterByTitle(filterTitle));
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, TITLE_FIELD);
                     } else if (searchBooksMenuSelection == 2) {
                         // Search by author
@@ -101,7 +102,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = filterByAuthor(filterAuthor);
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, AUTHOR_FIELD);
                     } else if (searchBooksMenuSelection == 3) {
                         // Search by published year
@@ -113,7 +114,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = filterByPublishedYear(filterYear);
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PUBLISHED_YEAR_FIELD);
                     } else if (searchBooksMenuSelection == 4) {
                         // Search by published year range
@@ -126,7 +127,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = filterByPublishedYearRange(filterFromYear, filterToYear);
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PUBLISHED_YEAR_FIELD);
                     } else if (searchBooksMenuSelection == 5) {
                         // Find the most recent books
@@ -137,7 +138,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = findMostRecentBooks();
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PUBLISHED_YEAR_FIELD);
                     } else if (searchBooksMenuSelection == 6) {
                         // Search by price
@@ -149,7 +150,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = filterByPrice(filterPrice);
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PRICE_FIELD);
                     } else if (searchBooksMenuSelection == 7) {
                         // Search by price range
@@ -162,7 +163,7 @@ public class App {
                          */
                         List<Integer> foundIndexes = filterByPriceRange(filterFromPrice, filterToPrice);
                         displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PRICE_FIELD);
                     } else if (searchBooksMenuSelection == 8) {
                         // Find the least expensive books
@@ -172,8 +173,8 @@ public class App {
                          `findLeastExpensiveBooks()` and `displaySearchResults()` methods.
                          */
                         List<Integer> foundIndexes = findLeastExpensiveBooks();
-                        displaySearchResults(foundIndexes);
-                        // // Challenge: 1
+                        displaySearchResults(findLeastExpensiveBooks());
+                        // Challenge: 1
                         // displaySearchResults(foundIndexes, PRICE_FIELD);
                     } else if (searchBooksMenuSelection == 0) {
                         break;
@@ -201,12 +202,17 @@ public class App {
         System.out.println();
         promptForReturn();
     }
+
     // /*
     //  Challenge: 1
     //  Write the displaySearchResults(List<Integer> indexes, int primaryField) method.
     //  See README for additional details.
     //  */
     // private void displaySearchResults(List<Integer> indexes, int primaryField) {
+
+    //     // For challenge 2
+    //     sortSearchResults(indexes, primaryField);
+
     //     System.out.println("Results");
     //     System.out.println("-------");
     //     for (int index : indexes) {
@@ -225,6 +231,65 @@ public class App {
     //     System.out.println();
     //     promptForReturn();
     // }
+
+    /*
+    Challenge: 2
+    Sort the output from displaySearchResults(List<Integer> indexes, int primaryField) by the primary field.
+    See README for additional details.
+    */
+    private void sortSearchResults(List<Integer> indexes, int primaryField) {
+        // Note that this bubble-sort sorts list is sorted in place, altering the input list of indexes.
+        System.out.println("Sorting...");
+        // The outer loop will control looping until all numbers have been examined
+        for (int stopIndex = indexes.size()-2; stopIndex >= 0; stopIndex--) {
+            // we will break - end early if no values were swapped in the inner loop
+            boolean didSwap = false;
+
+            // The inner loop will walk through the list comparing two neighboring values
+            // It will swap values if the first should be sorted after the second
+            for (int i = 0; i <= stopIndex; i++) {
+                // Get the values to check using the index from the list and the instance variables,
+                // compare them, and swap if needed. (Remember, `indexes` is an int position into the other lists.)
+                
+                // All of our types are Comparable classes: String, Integer, BigDecimal
+                // Students may not realize you can do this, but they could be guided OR
+                // they can do the compare and swap inside each if statement.
+                Comparable objectA = null;
+                Comparable objectB = null;
+
+                if (primaryField == TITLE_FIELD) {
+                    objectA = titles.get(indexes.get(i));
+                    objectB = titles.get(indexes.get(i+1));
+                } else if (primaryField == AUTHOR_FIELD) {
+                    objectA = authors.get(indexes.get(i));
+                    objectB = authors.get(indexes.get(i+1));
+                } else if (primaryField == PUBLISHED_YEAR_FIELD) {
+                    objectA = publishedYears.get(indexes.get(i));
+                    objectB = publishedYears.get(indexes.get(i+1));
+                } else if (primaryField == PRICE_FIELD) {
+                    objectA = prices.get(indexes.get(i));
+                    objectB = prices.get(indexes.get(i+1));
+                }
+
+                // Compare using the compareTo method
+                if (objectA.compareTo(objectB) > 0) {
+                    // Do swap - must get values first or one will get over-written
+                    int value1 = indexes.get(i);
+                    int value2 = indexes.get(i+1);
+                    indexes.set(i, value2);
+                    indexes.set(i+1, value1);
+                    // Set didSwap - Important: only set it to true in inner loop, never false!
+                    didSwap = true;
+                }
+            }
+
+            // Check to make sure that we swapped something before letting the outer loop continue
+            if (!didSwap) {
+                break;
+            }
+        }
+
+    }
 
     /*
      Requirement: 3a

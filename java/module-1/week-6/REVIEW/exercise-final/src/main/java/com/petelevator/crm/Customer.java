@@ -14,6 +14,7 @@ public class Customer extends Person implements Billable {
     private List<Pet> pets = new ArrayList<>();
 
     public Customer(String firstName, String lastName) {
+
         this(firstName, lastName, "");
     }
 
@@ -24,7 +25,7 @@ public class Customer extends Person implements Billable {
 
     public BigDecimal getBalanceDue(Map<String, BigDecimal> servicesRendered) {
         BigDecimal owes = BigDecimal.ZERO;
-        for (Map.Entry<String, BigDecimal> sr : servicesRendered.entrySet()) {
+        for (Map.Entry<String,BigDecimal> sr : servicesRendered.entrySet()) {
             owes = owes.add(sr.getValue());
         }
 

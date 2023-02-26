@@ -68,6 +68,7 @@ public class Exercise05_AcceptPackage {
         boolean validDimension = (lengthInches <= MAX_DIMENSION_INCHES) && (widthInches <= MAX_DIMENSION_INCHES) && (heightInches <= MAX_DIMENSION_INCHES);
         int volume = lengthInches * widthInches * heightInches;;
 
-        return (volume <= MAX_CUBIC_INCHES) && (weightPounds <= MAX_WEIGHT_POUNDS) && ((validDimension) || (!validDimension && isSurchargePaid));
+//        return (volume <= MAX_CUBIC_INCHES) && (weightPounds <= MAX_WEIGHT_POUNDS) && ((validDimension) || (!validDimension && isSurchargePaid));
+        return (volume <= MAX_CUBIC_INCHES) && (weightPounds <= MAX_WEIGHT_POUNDS) && ((validDimension) || (isSurchargePaid));
     }
 }

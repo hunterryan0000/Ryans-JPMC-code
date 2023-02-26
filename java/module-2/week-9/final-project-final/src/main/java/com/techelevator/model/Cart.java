@@ -9,6 +9,10 @@ public class Cart {
     private BigDecimal tax;
     private List<CartItem> items;
 
+    public void setItems(List<CartItem> items) {
+        this.items = items;
+    }
+
     public Cart() {
         this.items = new ArrayList<>();
         this.tax = new BigDecimal("0.00");

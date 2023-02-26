@@ -12,18 +12,19 @@ public class DecimalToBinary {
 		// Split the string
 		String[] numbersAsStrings = input.split(" ");
 
-		for (int ix = 0; ix < numbersAsStrings.length; ix++) {
-			int decimal = Integer.parseInt(numbersAsStrings[ix]);
+		for (int i = 0; i < numbersAsStrings.length; i++) {
+			int decimal = Integer.parseInt(numbersAsStrings[i]);
 
 			String binary = "";
-			for (; decimal >= 0; decimal = decimal / 2) { // the first and last section of the for loop are optional.  Here, we do not do anything before the for loop begins.
+			for (; decimal >= 0; decimal = decimal / 2) { // the first and last section of the for loop are optional.
+				// Here, we do not do anything before the for loop begins.
 				binary = (decimal % 2) + binary;
 				if (decimal == 0) {
 					break;
 				}
 			}
 
-			System.out.println(numbersAsStrings[ix] + " in binary is " + binary);
+			System.out.println(numbersAsStrings[i] + " in binary is " + binary);
 		}
 	}
 }

@@ -22,7 +22,7 @@ public class JdbcLineItemDaoTests extends BaseDaoTests {
 
     @Before
     public void setup() {
-        lineItemDao = new JdbcLineItemDao(dataSource);
+        lineItemDao = new JdbcLineItemDao(dataSource1);
     }
 
     @Test

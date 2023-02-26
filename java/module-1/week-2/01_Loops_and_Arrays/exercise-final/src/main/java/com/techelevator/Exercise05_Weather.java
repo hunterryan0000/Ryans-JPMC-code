@@ -74,7 +74,8 @@ public class Exercise05_Weather {
      */
     public int[] fixTemperatures(int[] temperatures) {
         for (int i = 0; i < temperatures.length; i+= 2) {
-            temperatures[i] = temperatures[i] + 2;
+//            temperatures[i] = temperatures[i] + 2;
+            temperatures[i] += 2;
         }
 
         return temperatures;

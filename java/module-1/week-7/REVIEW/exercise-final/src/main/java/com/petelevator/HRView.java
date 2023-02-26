@@ -111,15 +111,22 @@ public class HRView {
      */
     public Double promptForRaiseAmount() {
         // TODO Step 4: Practice "defensive coding" by making sure the user only enters a positive raise value
-        Double percentage = 0.0;
+//        Double percentage = 0.0;
+//        while (true) {
+//            percentage = console.promptForDouble("Enter the percentage increase (e.g. '5' for 5%): ");
+//            if (percentage == null) {
+//                return null;
+//            } else if (percentage > 0.0) {
+//                return percentage;
+//            }
+//            printErrorMessage("Percentage must be positive");
+//        }
         while (true) {
-            percentage = console.promptForDouble("Enter the percentage increase (e.g. '5' for 5%): ");
-            if (percentage == null) {
-                return null;
-            } else if (percentage > 0.0) {
+          double percentage = console.promptForDouble("Enter the percentage increase (e.g. '5' for 5%): ");
+            if (percentage > 0) {
                 return percentage;
             }
-            printErrorMessage("Percentage must be positive");
+            System.out.println("Percentage must be positive");;
         }
     }
 

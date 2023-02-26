@@ -13,13 +13,20 @@ public class Exercise05_CigarParty {
      cigarParty(70, true) → true
      */
     public boolean cigarParty(int cigars, boolean isWeekend) {
-        int minimumCigarCount = 40;
-        int maximumCigarCount = 60;
+//        int minimumCigarCount = 40;
+//        int maximumCigarCount = 60;
+//
+//        boolean hasMinimumCigars = cigars >= minimumCigarCount;
+//        boolean withinMaxRangeOfCigars = (!isWeekend && cigars <= maximumCigarCount) || isWeekend;
+//        boolean successful = hasMinimumCigars && withinMaxRangeOfCigars;
+//
+//        return successful;
 
-        boolean hasMinimumCigars = cigars >= minimumCigarCount;
-        boolean withinMaxRangeOfCigars = (!isWeekend && cigars <= maximumCigarCount) || isWeekend;
-        boolean successful = hasMinimumCigars && withinMaxRangeOfCigars;
-
-        return successful;
+        if (cigars >= 40 && cigars <= 60){
+            return true;
+        } else if (isWeekend && cigars >= 40){
+            return true;
+        }
+        return false;
     }
 }

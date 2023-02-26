@@ -12,6 +12,8 @@ public class ShoppingCart {
 	private List<Purchasable> itemsToBuy = new ArrayList<>();
 	private double taxRate;
 
+
+
 	public ShoppingCart(double taxRate) {
 		this.taxRate = taxRate;
 	}

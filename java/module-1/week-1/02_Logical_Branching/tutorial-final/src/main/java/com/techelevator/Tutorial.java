@@ -14,33 +14,34 @@ public class Tutorial {
         System.out.println("**************************************");
 
         // Step Two: Declare and initialize Weather Station variables
-        int highTemperatureF = 55;
+        int highTemperatureF = 55; //important variable names
         boolean precipitationExpected = true;
         final int FREEZING_TEMPERATURE_F = 32;
 
         // Step Three: Report today's expected conditions to the user.
         System.out.println("Expected high temperature: " + highTemperatureF + "\u00B0F."); // Degrees character in Unicode: \u00B0
-        if (precipitationExpected) {
-            System.out.println("The chance of precipitation is high.");
+        if (precipitationExpected) { // if (condition)
+            System.out.println("The chance of precipitation is high."); //statement or block performed if condition is true
         } else {
-            System.out.println("The chance of precipitation is low.");
+            System.out.println("The chance of precipitation is low."); //statement or block performed if condition is false
         }
 
         // Step Four: Determine if the user should bring a coat. (when the temperature < 65°F)
-        if (highTemperatureF < 65) {
+        if (highTemperatureF < 65) { // less than comparison operator
             System.out.println("* Don't forget to bring a coat today.");
         }
 
         // Step Five: Determine if the user should bring an umbrella
-        boolean isAboveFreezing = highTemperatureF > FREEZING_TEMPERATURE_F;
+        boolean isAboveFreezing = highTemperatureF > FREEZING_TEMPERATURE_F; // greater than comparison operator
         if (precipitationExpected && isAboveFreezing) {
             System.out.println("* Be sure to pack an umbrella!");
         }
 
         // Step Six: Advise the user on the type of jacket they should be wearing. (<= 0°F, <= freezing, < 65°F)
-        if (highTemperatureF <= 0) {
+        if (highTemperatureF <= 0) { // less than or equal to comparison operator
             System.out.println("* Bundle up! Wear everything you have!");
-        } else if (!isAboveFreezing) {
+        } else if (!isAboveFreezing) { // NOT logical operator...i.e. is not above freezing
+            //other logical operators A&&B A||B A^B
             System.out.println("* Please wear a warm winter coat!");
         } else if (highTemperatureF < 65) {
             System.out.println("* Take along a light jacket.");

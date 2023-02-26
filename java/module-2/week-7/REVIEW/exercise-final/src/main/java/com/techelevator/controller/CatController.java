@@ -2,8 +2,6 @@ package com.techelevator.controller;
 
 import com.techelevator.model.CatCard;
 import com.techelevator.dao.CatCardDao;
-import com.techelevator.model.CatFact;
-import com.techelevator.model.CatPic;
 import com.techelevator.services.CatFactService;
 import com.techelevator.services.CatPicService;
 import org.springframework.http.HttpStatus;

@@ -13,7 +13,8 @@ public class Exercise04_IsOrdered {
      */
     public boolean isOrdered(int a, int b, int c, boolean equalOk) {
         if (equalOk) {
-            return a <= b && b <= c;
+//            return a <= b && b <= c;
+            return c>=b && b>=a;
         } else {
             return a < b && b < c;
         }

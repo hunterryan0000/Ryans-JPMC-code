@@ -16,6 +16,7 @@ ul {
   padding: 0;
 }
 
+/* Start here */
 aside {
   position: fixed;
   border-right: 1px solid rgba(0, 173, 238, 0.4);
@@ -45,7 +46,8 @@ aside li a {
   text-decoration: none;
 }
 
-aside li:first-child { /* or aside li:first-child a */
+/* For HOME tab */
+li:first-child { /* or aside li:first-child a */
   text-decoration: underline;
 }
 
@@ -67,7 +69,7 @@ img.banner {
 section div {
   width: 33%;
   display: inline-block;
-  padding: 0 10px;
+  padding:  10px;
   margin-top: 10px;
 }
 
@@ -79,6 +81,10 @@ section h2 i {
   margin-right: 10px; /* or padding-right */
 }
 
-section div#what-we-do, section div#our-work {
+/* #what-we-do, #our-work {
   border-right: solid 1px rgba(170, 239, 135, 0.8);
+} */
+
+#contact-us, #our-work {
+  border-left: solid 1px rgba(170, 239, 135, 0.8);
 }

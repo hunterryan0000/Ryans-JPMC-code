@@ -1,14 +1,14 @@
 package com.techelevator;
 
-import static org.junit.Assert.*;
+import org.junit.Before;
+import org.junit.FixMethodOrder;
+import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.FixMethodOrder;
-import org.junit.runners.MethodSorters;
+import static org.junit.Assert.*;
 
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class AirplaneTest {
@@ -93,11 +93,11 @@ public class AirplaneTest {
 			Method getTotalCoachSeats = SafeReflection.getMethod(klass, "getTotalCoachSeats");
 			Method getBookedFirstClassSeats = SafeReflection.getMethod(klass, "getBookedFirstClassSeats");
 			Method getBookedCoachSeats = SafeReflection.getMethod(klass, "getBookedCoachSeats");
-			assertTrue("Passed ABC123 into constructor and expected PlaneNumber property to hold ABC123.",
+			assertTrue("Testing constructor with Airplane(\"ABC123\", 2, 3) and expected PlaneNumber property to hold \"ABC123\".",
 					"ABC123".equals((String) getPlaneNumber.invoke(airplane)));
-			assertTrue("Passed 2 into constructor and expected TotalFirstClassSeats property to return 2.",
+			assertTrue("Testing constructor with Airplane(\"ABC123\", 2, 3) and expected totalFirstClassSeats property to return 2",
 					2 == (int) getTotalFirstClassSeats.invoke(airplane));
-			assertTrue("Passed 3 into constructor and expected TotalCoachSeats property to return 3.",
+			assertTrue("Testing constructor with Airplane(\"ABC123\", 2, 3) and expected TotalCoachSeats property to return 3.",
 					3 == (int) getTotalCoachSeats.invoke(airplane));
 			assertTrue("New planes should initially have 0 booked first class seats.",
 					0 == (int) getBookedFirstClassSeats.invoke(airplane));
@@ -109,7 +109,7 @@ public class AirplaneTest {
 	}
 
 	@Test
-	public void airplaneAvailableSeatsTest() {
+	public void airplaneGetAvailableSeatsTest() {
 		Class klass = Airplane.class;
 
 		Constructor<Airplane> constructor = SafeReflection.getConstructor(klass, String.class, Integer.TYPE,
@@ -149,14 +149,14 @@ public class AirplaneTest {
 			assertTrue("reserveSeats should return true if a seat can be booked.", firstClassResult);
 			assertTrue("reserveSeats should return true if a seat can be booked.", coachResult);
 
-			assertTrue("AvailableFirstClassSeats did not return the correct value.",
+			assertTrue("availableFirstClassSeats did not return the correct value.",
 					1 == (int) getAvailableFirstClassSeats.invoke(airplane));
-			assertTrue("BookedFirstClassSeats did not return the correct value.",
+			assertTrue("bookedFirstClassSeats did not return the correct value.",
 					1 == (int) getBookedFirstClassSeats.invoke(airplane));
 
-			assertTrue("AvailableCoachSeats did not return the correct value.",
+			assertTrue("availableCoachSeats did not return the correct value.",
 					1 == (int) getAvailableCoachSeats.invoke(airplane));
-			assertTrue("BookedCoachSeats did not return the correct value.",
+			assertTrue("bookedCoachSeats did not return the correct value.",
 					2 == (int) getBookedCoachSeats.invoke(airplane));
 
 			airplane = constructor.newInstance("ABC123", 2, 3);
@@ -166,14 +166,14 @@ public class AirplaneTest {
 			assertFalse("reserveSeats should return true if a seat can be booked.", firstClassResult);
 			assertFalse("reserveSeats should return true if a seat can be booked.", coachResult);
 
-			assertTrue("AvailableFirstClassSeats did not return the correct value.",
+			assertTrue("availableFirstClassSeats did not return the correct value.",
 					2 == (int) getAvailableFirstClassSeats.invoke(airplane));
-			assertTrue("BookedFirstClassSeats did not return the correct value.",
+			assertTrue("bookedFirstClassSeats did not return the correct value.",
 					0 == (int) getBookedFirstClassSeats.invoke(airplane));
 
-			assertTrue("AvailableCoachSeats did not return the correct value.",
+			assertTrue("availableCoachSeats did not return the correct value.",
 					3 == (int) getAvailableCoachSeats.invoke(airplane));
-			assertTrue("BookedCoachSeats did not return the correct value.",
+			assertTrue("bookedCoachSeats did not return the correct value.",
 					0 == (int) getBookedCoachSeats.invoke(airplane));
 		} catch (Exception e) {
 			fail("Failed to instantiate Airplane");

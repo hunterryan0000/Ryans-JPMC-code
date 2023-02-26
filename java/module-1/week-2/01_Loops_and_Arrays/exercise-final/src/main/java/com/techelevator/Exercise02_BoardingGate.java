@@ -1,13 +1,16 @@
 package com.techelevator;
 
 public class Exercise02_BoardingGate {
+
     /*
     Local Jetways is a regional airline operating at local airports.
     They use a basic passenger manifest to represent seat occupancy on their plane.
         Each passenger seat is represented as an element in a boolean array.
-        A value of TRUE indicates that seat is currently available.
-        A value of FALSE indicates the seat is not available.
+        A value of AVAILABLE (true) indicates that seat is currently available.
+        A value of OCCUPIED (false) indicates the seat is not available.
      */
+    private final boolean AVAILABLE = true;
+    private final boolean OCCUPIED = false;
 
     /*
     A nearby airport has an incoming flight from Local Jetways. As the passengers disembark, the gate
@@ -19,15 +22,15 @@ public class Exercise02_BoardingGate {
     Note: The number of seats is guaranteed not to be negative.
 
     Examples:
-    generateSeatingChart(7) → [true, true, true, true, true, true, true]
-    generateSeatingChart(5) → [true, true, true, true, true]
-    generateSeatingChart(2) → [true, true]
+    generateSeatingChart(7) → [AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE]
+    generateSeatingChart(5) → [AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE]
+    generateSeatingChart(2) → [AVAILABLE, AVAILABLE]
      */
     public boolean[] generateSeatingChart(int numberOfSeats) {
         boolean[] seatingChart = new boolean[numberOfSeats];
 
         for (int i = 0; i < seatingChart.length; i++) {
-            seatingChart[i] = true;
+            seatingChart[i] = AVAILABLE;
         }
 
         return seatingChart;
@@ -38,19 +41,21 @@ public class Exercise02_BoardingGate {
     seats there are on the plane.
 
     Using the array provided, implement the logic to count the number of available seats in the seating chart.
-    A seat is available if the value is TRUE.
 
     Examples:
+    getAvailableSeatCount([AVAILABLE, OCCUPIED, OCCUPIED, OCCUPIED]) → 1
+    which is the same as:
     getAvailableSeatCount([true, false, false, false]) → 1
-    getAvailableSeatCount([false, false, false, false, false, false]) → 0
-    getAvailableSeatCount([true, true, true, false]) → 3
+
+    getAvailableSeatCount([OCCUPIED, OCCUPIED, OCCUPIED, OCCUPIED, OCCUPIED, OCCUPIED]) → 0
+    getAvailableSeatCount([AVAILABLE, AVAILABLE, AVAILABLE, OCCUPIED]) → 3
     getAvailableSeatCount([]) → 0
      */
     public int getAvailableSeatCount(boolean[] seatingChart) {
         int count = 0;
 
         for (int i = 0; i < seatingChart.length; i++) {
-            if (seatingChart[i] == true) {
+            if (seatingChart[i] == AVAILABLE) {
                 count++;
             }
         }
@@ -66,9 +71,9 @@ public class Exercise02_BoardingGate {
     Note: A new row starts at every third element. For example, row one begins with index 0, row two begins with index 3, and so on.
 
     Examples:
-    getNumberOfFullRows([false, false, false, false, false, false]) → 2
-    getNumberOfFullRows([false, false, false, true, true, true]) → 1
-    getNumberOfFullRows([true, true, true, true, true, true]) → 0    
+    getNumberOfFullRows([OCCUPIED, OCCUPIED, OCCUPIED, AVAILABLE, AVAILABLE, AVAILABLE]) → 1
+    getNumberOfFullRows([AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE, AVAILABLE]) → 0
+    getNumberOfFullRows([OCCUPIED, AVAILABLE, AVAILABLE, OCCUPIED, AVAILABLE, AVAILABLE]) → 0
      */
     public int getNumberOfFullRows(boolean[] seatingChart) {
         int fullRows = 0;
@@ -79,7 +84,7 @@ public class Exercise02_BoardingGate {
                 streak = 0;
             }
 
-            if (seatingChart[i] == false) { //streak continues
+            if (seatingChart[i] == OCCUPIED) { //streak continues
                 streak++;
             } else { //streak is over
                 streak = 0;

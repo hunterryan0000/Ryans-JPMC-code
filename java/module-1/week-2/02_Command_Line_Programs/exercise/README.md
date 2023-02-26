@@ -33,6 +33,17 @@ The Celsius to Fahrenheit conversion formula is:
 
 Write a command-line program which prompts a user to enter a temperature, and whether it's in degrees (C)elsius or (F)ahrenheit. Convert the temperature to the opposite degrees, and display the old and new temperatures to the console.
 
+In order to write this program, you need to know how to compare one string to another. In this case, you want to see if the string entered by the user is equal to "C" or "F". 
+
+You can compare one string to another using `equals()`, a pre-defined method of the String class:
+
+```java
+    if (str1.equals(str2)){
+        System.out.print("The strings are equal");
+    }
+```
+An upcoming lesson provides more information about string comparison. 
+
 ```
 Please enter the temperature: 58
 Is the temperature in (C)elsius, or (F)ahrenheit? F
@@ -51,7 +62,7 @@ The meter to foot conversion formula is:
 
     f = m * 3.2808399
 
-Write a command-line program which prompts a user to enter a length, and whether the measurement is in (m)eters or (f)eet. Convert the length to the opposite measurement, and display the old and new measurements to the console.
+Write a command-line program which prompts a user to enter a length, and whether the measurement is in (m)eters or (f)eet. Convert the length to the opposite measurement, and display the old and new measurements to the console. Use constants for the conversion factors (the amounts to multiply by), and round the result **down** to the nearest whole number.
 
 ```
 Please enter the length: 58
@@ -122,6 +133,30 @@ Please enter in a series of decimal values (separated by spaces): 460 8218 1 313
 987654321 in binary is 111010110111100110100010110001
 ```
 
+You can convert a decimal number to its binary equivalent by repeatedly dividing the number by two. Prepend the remainder of this division (either a 0 or a 1) to the solution string (see the Tips and Tricks section to learn how to *prepend* a value to a string). The process ends when division of the value by two yields a zero.
+
+For example, convert 8 to its binary equivalent of "1000":
+
+![Image version of conversion table](img/ConvertBinary.png)
+
+| **Value** | **Value / 2** | **Remainder** | **Solution String** |
+|:---------:|:-------------:|:-------------:|:-------------------:|
+|     8     |       4       |       0       |         "0"         |
+|     4     |       2       |       0       |        "00"         |
+|     2     |       1       |       0       |       "000"         |
+|     1     |       0       |       1       |    **"1000"**       |
+
+
+Try repeating the process yourself to convert 19 to "10011", its binary equivalent.
+
+| **Value** | **Value / 2** | **Remainder** | **Solution String** |
+|:---------:|:-------------:|:-------------:|:-------------------:|
+|     19    |               |               |                     |
+|           |               |               |                     |
+|           |               |               |                     |
+|           |               |               |                     |
+|           |               |               |   **"10011"**       |
+
 ## Getting started
 
 1. Import the command-line programs exercises project into IntelliJ.
@@ -130,7 +165,14 @@ Please enter in a series of decimal values (separated by spaces): 460 8218 1 313
 
 ## Tips and tricks
 
-* The curriculum team provided the conversion formulas for each exercise.
 * Many people have solved the Fibonacci sequence in many different ways. In fact, this may even come up during a technical interview. Rather than looking at the solutions that already exist, try to solve this problem on your own. If you do borrow a solution, take the time to understand what the code is actually doing.
-* Take the time to review each of the tasks for the expected output, as well as the text you must use to prompt the user for information. Try to get this to match the specification as closely as possible when working through the exercise.
+* The algorithm used to solve the decimal to binary conversion requires you to *prepend* each new digit to the cumulative string. *Prepend* means "add to the front."
 
+The following code illustrates the difference between appending a new digit and prepending a new digit:
+
+```java
+cumulativeString = cumulativeString + newDigit; // appends newDigit (adds it to the end)
+cumulativeString = newDigit + cumulativeString; // prepends newDigit (adds it to the beginning) 
+
+```
+* Take the time to review each of the tasks for the expected output, as well as the text you must use to prompt the user for information. Try to get this to match the specification as closely as possible when working through the exercise.

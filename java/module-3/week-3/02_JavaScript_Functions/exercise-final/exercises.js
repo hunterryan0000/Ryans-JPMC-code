@@ -40,7 +40,9 @@ function isAdmitted(gpa, satScore = 0, recommendation = false) {
  */
 let unfilteredArray = [1, 2, 3, 4, 5, 6];
 function useParameterToFilterArray(filterFunction) {
-  return unfilteredArray.filter(filterFunction);
+  // return unfilteredArray.filter(filterFunction);
+  let unfiltered = unfilteredArray.filter(filterFunction)
+  return unfiltered;
 }
 
 /**
@@ -55,9 +57,9 @@ function useParameterToFilterArray(filterFunction) {
  * @param {string} [second=''] the second string of digits to concatenate
  * @returns {number} the resultant number
  */
-function makeNumber(first, second = '') {
+function makeNumber(first, second) {
   let joinedString = first + second;
-  return parseFloat(joinedString);
+  return parseInt(joinedString);
 }
 
 /**
@@ -68,9 +70,15 @@ function makeNumber(first, second = '') {
  * @returns {number} the sum of all the parameters (or arguments)
  */
 function addAll() {
-  return Array.from(arguments).reduce((sum, number) => {
-    return sum + number;
-  }, 0);
+  // return Array.from(arguments).reduce((sum, number) => {
+  //   return sum + number;
+  // }, 0);
+
+  let sum = 0;
+  for(argument of arguments){
+    sum += argument;
+  }
+  return sum;
 }
 
 /*
@@ -86,9 +94,14 @@ function addAll() {
  * @returns {string[]} the same words but with 'Happy' prepended
  */
 function makeHappy(words) {
-  return words.map((word) => {
+  // return words.map((word) => {
+  //   return 'Happy ' + word;
+  // });
+
+  let happyArray = words.map((word) => {
     return 'Happy ' + word;
   });
+  return happyArray;
 }
 
 /*
@@ -117,19 +130,24 @@ function makeHappy(words) {
  * addresses. Address parts should be put in order and separated
  * by spaces.
  *
- * @param {object[]} properties array of objects to format
- * @param {number|string} properties[].streetNumber the street number of the property
- * @param {string} properties[].streetName the name of the street the property is on
- * @param {string} properties[].streetType the abbreviation of the street after the street name
- * @param {string} properties[].city the city the property is in
- * @param {string} properties[].state the state the city is in
- * @param {string} properties[].zip the zip code of the property
- * @returns {string[]} array of formatted properties
+ * @param {array} properties array of objects to format
+ * @param {Number|string} properties.streetNumber the street number of the property
+ * @param {string} properties.streetName the name of the street the property is on
+ * @param {string} properties.streetType the abbreviation of the street after the street name
+ * @param {string} properties.city the city the property is in
+ * @param {string} properties.state the state the city is in
+ * @param {string} properties.zip the zip code of the property
+ * @returns {array} array of formatted properties
  */
 function getFullAddressesOfProperties(properties) {
   return properties.map((p) => {
     return [p.streetNumber, p.streetName, p.streetType, p.city, p.state, p.zip].join(' ');
   });
+
+  // let returningArray = properties.map((p) => {
+  //   return [p.streetNumber, p.streetName, p.streetType, p.city, p.state, p.zip].join(' ');
+  // });
+  // return returningArray;
 }
 
 /** 
@@ -143,17 +161,23 @@ function getFullAddressesOfProperties(properties) {
  * 
  * "cat" < "dog" but "Dog" < "cat"
  *
- * @param {number[]|string[]} searchArray the array to search
- * @returns {number|string} the number or string that is largest
+ * @param {array} searchArray the array to search
+ * @returns {string|Number} the number or string that is largest
  **/
 function findLargest(searchArray) {
   let currentLargest = searchArray[0];
-  searchArray.forEach((element) => {
-    if (element > currentLargest) {
-      currentLargest = element;
-    }
-  });
-  return currentLargest;
+  // searchArray.forEach((element) => {
+  //   if (element > currentLargest) {
+  //     currentLargest = element;
+  //   }
+  // });
+  // return currentLargest;
+
+  for (element of searchArray){
+     if(element > currentLargest)
+     currentLargest = element;
+   }
+   return currentLargest;
 }
 
 /*
@@ -177,18 +201,32 @@ function findLargest(searchArray) {
  * Takes an array of arrays and adds up all the values found in the sub
  * arrays. Will return 0 if array is empty or if no parameter is given.
  *
- * @param {array} [nestedArray=[]] an array of arrays where each nested array
+ * @param {array} [nestedArray] an array of arrays where each nested array
  *                            contains numbers to be added up, if empty or
  *                            not given, return 0
  * @returns {number} the sum of all the numbers in the nested arrays
  */
 function getSumOfSubArrayValues(nestedArray = []) {
-  return nestedArray.reduce((sum, array) => {
-    return (
-      sum +
-      array.reduce((sum, number) => {
-        return sum + number;
-      }, 0)
-    );
+  // return nestedArray.reduce((sum, array) => {
+  //   return (
+  //     sum +
+  //     array.reduce((sum, number) => {
+  //       return sum + number;
+  //     }, 0)
+  //   );
+  // }, 0);
+
+  //big array nest all the arrays
+  let addedTotalArray = nestedArray.reduce((nestedArray, array) =>{
+    //nest the single arrays inside the large array
+    let addSingleArray = array.reduce((singleArray, number) => {
+      //callback function that on each iteration adds number to the previous
+      return singleArray + number;
+    });
+    //callback function that adds each array to each other
+    return nestedArray + addSingleArray;
+    //return 0 if no array
   }, 0);
+  //return total
+  return addedTotalArray;
 }

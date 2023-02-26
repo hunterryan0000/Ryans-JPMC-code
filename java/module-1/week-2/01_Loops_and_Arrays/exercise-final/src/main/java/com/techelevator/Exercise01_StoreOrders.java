@@ -55,13 +55,16 @@ public class Exercise01_StoreOrders {
 
     /*
     Sally realized that she needed to know how many calzones her shop sells per day.
-    
+
     Implement the logic to count the number of calzones sold per day when given an
     array representing each item that her customers ordered that day.
 
     Examples:
+    getCalzoneSales([CALZONE, LARGE_CHEESE, LARGE_PEPPERONI, CALZONE, SMALL_CHEESE]) → 2
+    which is the same as:
     getCalzoneSales([40, 30, 31, 40, 10]) → 2
-    getCalzoneSales([30, 31, 10]) → 0
+
+    getCalzoneSales([LARGE_CHEESE, LARGE_PEPPERONI, SMALL_CHEESE]) → 0
     getCalzoneSales([]) → 0
      */
     public int getCalzoneSales(int[] orders) {
@@ -86,9 +89,9 @@ public class Exercise01_StoreOrders {
     an array representing each item that her customers ordered that day.
 
     Examples:
-    getCheesePizzaRevenue([10]) → 8
-    getCheesePizzaRevenue([10, 11, 20]) → 19
-    getCheesePizzaRevenue([11, 21]) → 0
+    getCheesePizzaRevenue([SMALL_CHEESE]) → 8
+    getCheesePizzaRevenue([SMALL_CHEESE, SMALL_PEPPERONI, MEDIUM_CHEESE]) → 19
+    getCheesePizzaRevenue([SMALL_PEPPERONI, MEDIUM_PEPPERONI]) → 0
      */
     public int getCheesePizzaRevenue(int[] orders) {
         int sales = 0;

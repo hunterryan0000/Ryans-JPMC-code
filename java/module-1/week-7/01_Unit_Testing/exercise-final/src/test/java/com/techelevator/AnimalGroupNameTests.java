@@ -27,10 +27,11 @@ public class AnimalGroupNameTests {
                 AnimalGroupName animalGroup = new AnimalGroupName();
 
                 //Act
-                String herdName = animalGroup.getHerd("GiRAffe");
+                //String herdName = animalGroup.getHerd("GiRAffe");
 
                 //Assert
-                assertEquals("Tower", herdName);
+                //assertEquals("Tower", herdName);
+                assertEquals("Tower", animalGroup.getHerd("GiRAffe"));
         }
 
         @Test

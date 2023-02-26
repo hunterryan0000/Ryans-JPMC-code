@@ -48,9 +48,9 @@ public class Exercises {
 
 		if (animalName != null && animals.containsKey(animalName.toLowerCase())) {
 			return animals.get(animalName.toLowerCase());
-		} else {
-			return "unknown";
 		}
+			return "unknown";
+
 	}
 
 	/*
@@ -100,7 +100,9 @@ public class Exercises {
 	 *
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 99}) → {"Peter": 1000, "Paul": 1099}
 	 * robPeterToPayPaul({"Peter": 2000, "Paul": 30000}) → {"Peter": 2000, "Paul": 30000}
-	 *
+	 * robPeterToPayPaul({"Peter": 101, "Paul": 500}) → {"Peter": 51, "Paul": 550}
+	 * robPeterToPayPaul({"Peter": 0, "Paul": 500}) → {"Peter": 0, "Paul": 500}
+	 * 
 	 */
 	public Map<String, Integer> robPeterToPayPaul(Map<String, Integer> peterPaul) {
 		int petersMoney = peterPaul.get("Peter");
@@ -295,3 +297,4 @@ public class Exercises {
 	}
 
 }
+

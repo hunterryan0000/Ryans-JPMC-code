@@ -27,6 +27,8 @@ public class BookReader {
         /*
         Step 2: Step Two: Open the book file and handle errors
          */
+        //Create a Java object to represent a file
+
 
     }
 }

@@ -14,11 +14,11 @@ import java.sql.SQLException;
 public abstract class BaseDaoTests {
 
     @Autowired
-    protected DataSource dataSource;
+    protected DataSource dataSource1;
 
     @After
     public void rollback() throws SQLException {
-        dataSource.getConnection().rollback();
+        dataSource1.getConnection().rollback();
     }
 
 }

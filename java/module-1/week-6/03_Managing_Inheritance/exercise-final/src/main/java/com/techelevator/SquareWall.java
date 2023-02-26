@@ -9,6 +9,7 @@ public class SquareWall extends RectangleWall {
     }
 
     public String toString() {
+
         return String.format("%s (%dx%d) square", getName(), getLength(), getHeight());
     }
 }

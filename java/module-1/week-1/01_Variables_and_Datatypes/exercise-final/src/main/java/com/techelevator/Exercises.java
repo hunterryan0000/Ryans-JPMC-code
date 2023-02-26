@@ -111,8 +111,8 @@ public class Exercises {
         altogether?
         */
         int largeMarshmallows = 8;
-        int smallMarhMallows = 10;
-        int totalMallow = largeMarshmallows + smallMarhMallows;
+        int smallMarshmallows = 10;
+        int totalMallow = largeMarshmallows + smallMarshmallows;
 
         /* Exercise 14
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
@@ -124,12 +124,12 @@ public class Exercises {
         int differenceInInches = inchesOfSnowAtHouse - inchesOfSnowAtSchool;
 
         /* Exercise 15
-        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
+        15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2.50 on a pencil
         case. How much money does she have left?
         */
         double startingMoney = 10d;
         double toyTruckCost = 3d;
-        double pencilCost = 2d;
+        double pencilCost = 2.5d;
         double remainingMoney = startingMoney - (toyTruckCost + pencilCost);
 
         /* Exercise 16
@@ -222,8 +222,8 @@ public class Exercises {
         27. Mrs. Hilt has 50 cents. A pencil costs 7 cents. How many pencils can
         she buy with the money she has?
         */
-        float costPerPencil = .07f;
-        float startingAmount = 0.50f;
+        double costPerPencil = .07d;
+        double startingAmount = 0.50d;
         // divide 50 cents by 07 cents to determine how many pencils can be purchased. Cast to an int to get the whole number
         int numberOfPencilsPurchased = (int) (startingAmount / costPerPencil);
 
@@ -364,9 +364,9 @@ public class Exercises {
         boxes with 3 lemon cupcakes each were given away?
         */
         int totalCupcakes = 53;
-        int cupcakesLeftAthome = 2;
+        int cupcakesLeftAtHome = 2;
         int cupcakesPerBox = 3;
-        int boxesGivenAway = (totalCupcakes - cupcakesLeftAthome) / cupcakesPerBox;
+        int boxesGivenAway = (totalCupcakes - cupcakesLeftAtHome) / cupcakesPerBox;
 
         /* Exercise 45
         45. Susie's mom prepared 74 carrot sticks for breakfast. If the carrots
@@ -427,7 +427,7 @@ public class Exercises {
 	    51. Bill and Jill are house painters. Bill can paint a standard room in 2.15 hours, while Jill averages
 	    1.90 hours. How long will it take the two painters working together to paint 5 standard rooms?
 	    Hint: Calculate the rate at which each painter can complete a room (rooms / hour), combine those rates,
-        and then divide by the total number of rooms to be painted.
+	    and then divide the total number of rooms to be painted by the combined rate.
 	    */
         double roomsPerHourBill = 1 / 2.15;
         double roomsPerHourJill = 1 / 1.90;

@@ -9,8 +9,17 @@ import java.util.Scanner;
 
 public class FileSplitter {
 
+	// Use this scanner for all user input. Don't create additional Scanners with System.in
+	private final Scanner userInput = new Scanner(System.in);
+
 	public static void main(String[] args) {
-		try (Scanner userInput = new Scanner(System.in)) {
+		FileSplitter fileSplitter = new FileSplitter();
+		fileSplitter.run();
+	}
+
+	public void run() {
+		/* Your code goes here */
+		try (userInput) {
 
 			// Get the location of the source file
 			File sourceFile;

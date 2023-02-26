@@ -98,7 +98,7 @@ public class CreditCardValidationException extends Exception {
 
 ## Step Three: Update the validation loop to catch the `CreditCardValidationException`
 
-Its always best practice to throw and catch the most specific exception you can.
+It's always best practice to throw and catch the most specific exception you can.
 
 Now that `CreditCardValidationException` is available, modify the `validate()` method in `CreditCard` to throw the more specific exception. Replace `throws Exception` with `throws CreditCardValidationException`.
 

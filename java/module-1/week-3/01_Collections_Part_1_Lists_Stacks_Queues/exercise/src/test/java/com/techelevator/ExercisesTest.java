@@ -187,11 +187,11 @@ public class ExercisesTest {
 			fail("Input: interleaveLists([7, 1, 3], [2, 5, 7, 9]) " + failureMessage);
 		}
 
-		trialList = exercises.interleaveLists(new ArrayList<Integer>(Arrays.asList(1, 2, 5, 8)),
+		trialList = exercises.interleaveLists(new ArrayList<Integer>(Arrays.asList(1, 2, 5, 8, 10)),
 				new ArrayList<Integer>(Arrays.asList(4, 5, 6)));
-		failureMessage = compareArrayLists(new ArrayList<Integer>(Arrays.asList(1, 4, 2, 5, 5, 6, 8)), trialList);
+		failureMessage = compareArrayLists(new ArrayList<Integer>(Arrays.asList(1, 4, 2, 5, 5, 6, 8, 10)), trialList);
 		if (failureMessage != null) {
-			fail("Input: interleaveLists([1, 2, 5, 8], [4, 5, 6]) " + failureMessage);
+			fail("Input: interleaveLists([1, 2, 5, 8, 10], [4, 5, 6]) " + failureMessage);
 		}
 
 	}

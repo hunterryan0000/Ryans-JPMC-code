@@ -1,6 +1,8 @@
 package com.lendingcatalog;
 
 import com.lendingcatalog.model.*;
+import com.lendingcatalog.util.FileStorageService;
+import com.lendingcatalog.util.exception.FileStorageException;
 
 import java.util.*;
 
@@ -24,6 +26,86 @@ public class App {
     private void initialize() {
         // Requirement: Data transformation
 
+        String itemsFilePath = new String();
+
+        List<CatalogItem> memberItems = new ArrayList<>();
+
+        List<String> itemsData = new ArrayList<>();
+        try {
+            itemsData = FileStorageService.readContentsOfFile(FILE_BASE_PATH + itemsFilePath);
+        } catch (Exception e) {
+            System.out.println("Error reading items file " + itemsFilePath + System.lineSeparator() + e);
+        }
+
+        if (!itemsData.isEmpty()) {
+            for (String item : itemsData) {
+                if (!item.trim().isEmpty()) {
+                    String[] fields = item.trim().split(FIELD_DELIMITER);
+
+                    try {
+                        if (fields.length == 4) {
+                            if (fields[0].equals("book")) {
+                                Book book = new Book(fields[1], fields[2], fields[3]);
+                                book.registerItem();
+                                memberItems.add(book);
+                            } else if (fields[0].equals("movie")) {
+                                Movie movie = new Movie(fields[1], fields[2], fields[3]);
+                                movie.registerItem();
+                                memberItems.add(movie);
+                            } else if (fields[0].equals("tool")) {
+                                Tool tool = new Tool(fields[1], fields[2], fields[3]);
+                                tool.registerItem();
+                                memberItems.add(tool);
+                            } else {
+                                throw new Exception("Unrecognized item type.");
+                            }
+                        } else {
+                            throw new Exception("Line doesn't have the correct number of fields. Found " + fields.length + " but expected 4." + System.lineSeparator() + "\t" + item);
+                        }
+                    } catch (FileStorageException fse) {
+                        System.out.println("File storage exception occurred. " + fse.getMessage());
+                    } catch (Exception e) {
+                        System.out.println("Exception occurred. " + e.getMessage());
+                    }
+                }
+            }
+        }
+
+
+        /*****************************************************************************************/
+
+        String membersFilePath = FILE_BASE_PATH + "members.dat";
+        List<String> membersData = new ArrayList<>();
+        //read member file to create the keys in the map
+        try {
+            membersData = FileStorageService.readContentsOfFile(membersFilePath);
+        } catch (FileStorageException fse) {
+            System.out.println("File storage exception occurred. " + fse.getMessage());
+        } catch (Exception e) {
+            System.out.println("Exception occurred. " + e.getMessage());
+        }
+
+        if (!membersData.isEmpty()) {
+            //split each member by the | as a String array
+            for (String member : membersData) {
+                String[] fields = member.trim().split(FIELD_DELIMITER);
+
+                // if the String array has a first name [0], last name [1], and the
+                // name of the file that contains their items [2]
+                // set it as a new member
+                if (fields.length == 3) {
+                    // to set a new member first and last name is required
+                    // this will be used as the keys in the catalog map
+                    Member m = new Member(fields[0], fields[1]);
+                    //to create the value for the map you have to read each of the
+                    // members item file to populate a list of catalogue items
+
+                    catalog.put(m.toString(), memberItems);
+                } else {
+                    System.out.println("String doesn't have the correct number of fields. Found " + fields.length + " but expected 3." + System.lineSeparator() + "\t" + member);
+                }
+            }
+        }
     }
 
 

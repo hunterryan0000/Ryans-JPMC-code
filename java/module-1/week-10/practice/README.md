@@ -8,7 +8,7 @@ This practice assessment verifies the competencies that you learned during the m
 
 * **Part Two** includes a written specification. You'll build a class by adding fields and methods. The provided tests verify that you correctly coded the class according to specification, much like the object-oriented programming exercises you completed earlier in the module. You'll find a detailed specification of the requirements of this class in a later section of this document.
 
-**After completing both parts, you need to `add`, `commit`, and `push` the solution code to your repository. Then submit your assessment from BootcampOS.**
+**After completing both parts, you may `add`, `commit`, and `push` the code to your repository. Since this is a practice assessment, it's not graded and you don't need to submit this assessment to BootcampOS.**
 
 ## Hints and suggestions
 

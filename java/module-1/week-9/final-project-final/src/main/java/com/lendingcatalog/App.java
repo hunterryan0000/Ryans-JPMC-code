@@ -28,6 +28,7 @@ public class App {
 
         String membersFilePath = FILE_BASE_PATH + "members.dat";
         List<String> membersData = new ArrayList<>();
+        //read member file to create the keys in the map
         try {
             membersData = FileStorageService.readContentsOfFile(membersFilePath);
         } catch (FileStorageException fse) {
@@ -37,11 +38,19 @@ public class App {
         }
 
         if (!membersData.isEmpty()) {
+            //split each member by the | as a String array
             for (String member : membersData) {
                 String[] fields = member.trim().split(FIELD_DELIMITER);
 
+                // if the String array has a first name [0], last name [1], and the
+                // name of the file that contains their items [2]
+                // set it as a new member
                 if (fields.length == 3) {
+                    // to set a new member first and last name is required
+                    // this will be used as the keys in the catalog map
                     Member m = new Member(fields[0], fields[1]);
+                    //to create the value for the map you have to read each of the
+                    // members item file to populate a list of catalogue items
                     List<CatalogItem> items = processItems(fields[2]);
                     catalog.put(m.toString(), items);
                 } else {
@@ -50,6 +59,7 @@ public class App {
             }
         }
     }
+
 
     private List<CatalogItem> processItems(String itemsFilePath) {
         List<CatalogItem> memberItems = new ArrayList<>();
