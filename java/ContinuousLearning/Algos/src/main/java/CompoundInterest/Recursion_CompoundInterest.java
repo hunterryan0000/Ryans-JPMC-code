@@ -1,3 +1,5 @@
+package CompoundInterest;
+
 /**
  * Recursion is a powerful concept where a function calls itself to solve
  * smaller instances of the same problem. It's particularly useful in

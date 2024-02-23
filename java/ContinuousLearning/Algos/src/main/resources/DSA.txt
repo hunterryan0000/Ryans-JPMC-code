@@ -2,7 +2,7 @@ Dynamic Programming (DP)
 Application Example: Options Pricing (e.g., Black-Scholes Model)
 DP can be used in financial models to price options by solving the partial differential equations (PDEs) that arise in these models. By discretizing these PDEs, DP can efficiently compute the value of options at different points in time and under varying conditions, aiding in risk management and financial planning.
 
-Hashing
+Searching.Hashing
 Application Example: Fast Transaction Lookup
 In trading platforms, hashing is employed to quickly match buy and sell orders by using a hash table where the key could be the combination of stock symbol and price. This allows for near-instantaneous lookups and updates, crucial for high-frequency trading environments.
 
